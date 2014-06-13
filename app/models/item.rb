@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
   has_many :pledges
   has_many :requests
+  
   validates :asin, presence: true, uniqueness:true
   validates :name, presence: true
   validates :img_url, presence: true

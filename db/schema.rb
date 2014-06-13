@@ -18,9 +18,10 @@ ActiveRecord::Schema.define(version: 20140613034657) do
 
   create_table "campaigns", force: true do |t|
     t.integer  "organization_id"
-    t.text     "description"
-    t.date     "start_date"
-    t.date     "end_date"
+    t.string   "name",            null: false
+    t.text     "description",     null: false
+    t.date     "start_date",      null: false
+    t.date     "end_date",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140613034657) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.string   "password"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,14 +47,15 @@ ActiveRecord::Schema.define(version: 20140613034657) do
   end
 
   create_table "organizations", force: true do |t|
-    t.string   "name"
-    t.string   "street"
-    t.string   "city"
-    t.string   "state"
-    t.integer  "zipcode"
-    t.string   "email"
-    t.string   "phone"
-    t.text     "description"
+    t.string   "name",            null: false
+    t.string   "street",          null: false
+    t.string   "city",            null: false
+    t.string   "state",           null: false
+    t.string   "zipcode",         null: false
+    t.string   "email",           null: false
+    t.string   "password_digest"
+    t.string   "phone",           null: false
+    t.text     "description",     null: false
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -61,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140613034657) do
 
   create_table "pledges", force: true do |t|
     t.integer  "donor_id"
+    t.integer  "campaign_id"
     t.integer  "item_id"
     t.integer  "quantity"
     t.datetime "created_at"
