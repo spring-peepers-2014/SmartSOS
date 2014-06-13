@@ -17,6 +17,9 @@ class CampaignsController < ApplicationController
 	def show
 	end
 
+	def show_all
+	end
+
 	def destroy
 	end
 end
