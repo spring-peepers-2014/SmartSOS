@@ -1,1 +1,0 @@
-donors_controller_spec.rb
