@@ -3,7 +3,7 @@ require 'spec_helper'
 describe OrganizationsController do 
 
 	describe 'GET #index' do 
-		it 'assigns all organziations to @organizations' do
+		it 'assigns all organizations to @organizations' do
 			org1 = create(:org)
 			org2 = create(:org)
 			get :index
@@ -34,6 +34,18 @@ describe OrganizationsController do
 				}.to_not change(Organization, :count)
 			end
 		end
+	end
+
+	describe 'GET #edit' do
+	end
+
+	describe 'GET #show' do
+	end
+
+	describe 'PATCH #update' do
+	end
+
+	describe 'DELETE #destroy' do
 	end
 
 end
