@@ -20,6 +20,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'bcrypt-ruby', '~> 3.1.2'
 
+gem 'sucker'
+
 group :doc do
   gem 'sdoc', '~> 0.4.0', require: false
 end
