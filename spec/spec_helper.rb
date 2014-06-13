@@ -61,4 +61,7 @@ RSpec.configure do |config|
 
   # FIX: ExampleGroup#example is deprecated and will be removed in RSpec 3.
   config.expose_current_running_example_as :example
+
+  # FIX: INCLUDE factory girl methods in testing suite
+  config.include FactoryGirl::Syntax::Methods
 end
