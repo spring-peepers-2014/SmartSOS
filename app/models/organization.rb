@@ -1,4 +1,6 @@
 class Organization < ActiveRecord::Base
+  has_many :campaigns
+
   validates :name, presence: true
   validates :street, presence: true
   validates :city, presence: true

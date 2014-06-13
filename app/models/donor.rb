@@ -1,4 +1,7 @@
 class Donor < ActiveRecord::Base
+  belongs_to :campaign
+  has_many :pledges
+  has_many :items, through: :pledges
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
