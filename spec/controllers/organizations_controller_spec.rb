@@ -38,7 +38,6 @@ describe OrganizationsController do
 		context 'with INVALID attributes' do
 			it "does NOT save the new organization in the database" do
 				expect {
-					raise 'needs to be fixed'
 					post :create, organization: attributes_for(:invalid_organization)
 				}.to_not change(Organization, :count)
 			end

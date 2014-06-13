@@ -12,9 +12,10 @@ FactoryGirl.define do
 		password_digest 'password'
 		description { Faker::Lorem.paragraph }
 		url { Faker::Internet.url }
-	end
 
-	factory :invalid_organization do 
-		name nil
+		factory :invalid_organization do 
+			name nil
+		end
+	
 	end
 end
