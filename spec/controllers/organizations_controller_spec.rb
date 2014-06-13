@@ -23,7 +23,7 @@ describe OrganizationsController do
 		it 'assigns a new organization to @org' do
 			get :new
 			expect(assigns(:org)).to be_a_new(Organization)
-		end
+		end 
 	end
 
 	describe 'POST #create' do
