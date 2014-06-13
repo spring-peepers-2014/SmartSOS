@@ -1,4 +1,5 @@
 class CampaignsController < ApplicationController
+
 	def index
 	end
 
@@ -18,6 +19,7 @@ class CampaignsController < ApplicationController
 	end
 
 	def show_all
+		render 'campaigns/index'
 	end
 
 	def destroy

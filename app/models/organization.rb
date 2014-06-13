@@ -1,4 +1,5 @@
-  class Organization < ActiveRecord::Base
+class Organization < ActiveRecord::Base
+  has_secure_password
   has_many :campaigns
 
   validates :name, presence: true

@@ -71,7 +71,8 @@ organization_names.each do |org|
                         state: Faker::Address.state,
                         zipcode: Faker::Address.zip_code,
                         email: Faker::Internet.email,
-                        password_digest: Faker::Internet.password,
+                        password: "yolo",
+                        password_confirmation: "yolo",
                         phone: Faker::PhoneNumber.phone_number,
                         description: Faker::Lorem.paragraph(sentence_count=3),
                         url: Faker::Internet.url)
@@ -81,7 +82,8 @@ end
   Donor.create( first_name: Faker::Name.first_name,
                 last_name: Faker::Name.last_name,
                 email: Faker::Internet.email,
-                password_digest: Faker::Internet.password)
+                password: "yolo",
+                password_confirmation: "yolo")
 end
 
 Organization.all.each do |org|

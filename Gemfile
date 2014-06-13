@@ -18,6 +18,8 @@ gem 'turbolinks', '~> 2.2.2'
 
 gem 'jbuilder', '~> 1.2'
 
+gem 'bcrypt', '~> 3.1.7'
+
 gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'sucker'
