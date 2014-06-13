@@ -2,8 +2,8 @@ require 'spec_helper'
 
 feature 'Creating Organizations' do
 	before :each do
-		# visit '/'
-		# click_link 'Register Organization'
+		visit '/'
+		click_link 'Register Organization'
 	end
 	
 	scenario 'can register a new organization with VALID attributes' do
