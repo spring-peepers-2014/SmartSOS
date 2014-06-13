@@ -12,8 +12,9 @@ class OrganizationsController < ApplicationController
 		@org = Organization.new
 
 		if @org.save
-			redirect organization(@org)
+			redirect organization_path(@org)
 		else
+			render 'new'
 		end
 	end
 

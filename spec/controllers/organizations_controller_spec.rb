@@ -30,7 +30,7 @@ describe OrganizationsController do
 		context 'with VALID attributes' do
 			it 'saves the new organization in the database' do
 				expect {
-					post :create, org: create.attributes_for(:org)
+					post :create, org: attributes_for(:org)
 				}.to change(Organization, :count).by(1)
 			end
 		end
@@ -38,7 +38,7 @@ describe OrganizationsController do
 		context 'with INVALID attributes' do
 			it "does NOT save the new organization in the database" do
 				expect {
-					post :create, org: create.attributes_for(:invalid_org)
+					post :create, org: attributes_for(:invalid_org)
 				}.to_not change(Organization, :count)
 			end
 		end
