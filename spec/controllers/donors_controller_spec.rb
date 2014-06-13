@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe DonorsController do 
 
-
 	describe 'GET #new' do 
 		it "assigns a new Donor to @donor" do 
 			get :new
@@ -17,7 +16,7 @@ describe DonorsController do
 
 
 	describe 'GET #show' do 
-		it "assisngs the requested donor to @donor"
+		it "assisngs the requested donor to @donor" do
 			donor = FactoryGirl.build(:donor)
 			get :show, id: donor 
 			expect(assigns(:donor)).to eq donor
@@ -119,6 +118,8 @@ describe DonorsController do
 				expect(response).to redirect_to root_path
 			end
 		end
+
+	end
 
 end 
 
