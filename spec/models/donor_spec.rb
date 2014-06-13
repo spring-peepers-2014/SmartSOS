@@ -1,8 +1,7 @@
-require_relative '../spec_helper'
+require 'spec_helper'
 
 describe Donor do 
-	
-	it "is valid with a first name, lastname, email and password" do 
+		it "is valid with a first name, lastname, email and password" do 
 		donor = FactoryGirl.build(:donor)
 		expect(donor).to be_valid
 	end
@@ -18,7 +17,4 @@ describe Donor do
 	context "it should respond to campaigns" do
 		it { should have_many(:campaigns).through(:pledges) }
 	end
-
-
-
 end
