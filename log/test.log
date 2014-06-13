@@ -61,3 +61,16 @@ Started GET "/" for 127.0.0.1 at 2014-06-13 11:47:42 -0400
 Processing by CampaignsController#show_all as HTML
 Completed 500 Internal Server Error in 1ms
   [1m[36m (1.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2014-06-13 11:50:03 -0400
+Processing by CampaignsController#show_all as HTML
+  Rendered campaigns/show_all.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 1003ms (Views: 987.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2014-06-13 11:50:04 -0400
+Processing by CampaignsController#show_all as HTML
+  Rendered campaigns/show_all.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
