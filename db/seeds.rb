@@ -1,25 +1,65 @@
 require 'faker'
-
-def random_asin
-  Array.new(10){rand(36).to_s(36).upcase}.join
-end
+require 'sucker'
 
 organization_names = ["Red Cross", "Children's Disaster Services"]
-item_names = [ "paper towels",
-          "water bottles",
-          "tampons",
-          "dog food",
-          "Sham-wows",
-          "blankets",
-          "shoes"]
+
+general_search_items = %w[soap toothbrush toothpaste tampons dog_food water canned_food batteries first_aid_kit baby_formula diapers dehydrated_food]
+
+general_search_items.each do |item| 
+
+  3.times do |num|
+
+    puts "hello"
+
+    worker = Sucker.new(
+      :associate_tag => 'sm0cd-2',
+      :key => 'AKIAJPKJ66LAGWDBFAHA',
+      :secret => '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',
+      :locale => :us)
 
 
-item_names.each do |item|
-  Item.create(  asin: random_asin,
-                name: item,
-                category: Faker::Lorem.word,
-                img_url: Faker::Internet.url,
-                price: rand(9999))
+    worker << {
+      :operation => 'ItemSearch',
+      :item_page => num,
+      :search_index => 'HealthPersonalCare',
+      :keywords => item,
+      :response_group => 'ItemAttributes, ItemIds, Large',
+      :maximum_price => '2000'
+    }
+
+
+    response = worker.get
+
+
+    response.each('Item') do |i|
+
+
+      if i['ItemAttributes']['ListPrice']
+        name = i['ItemAttributes']['Title']
+        asin = i['ASIN']
+        category = nil
+        price = i['ItemAttributes']['ListPrice']['Amount']
+        
+
+        if i['ImageSets']['ImageSet'].class == Array
+          img_url = i['ImageSets']['ImageSet'][0]['LargeImage']['URL']
+        else
+          img_url = i['ImageSets']['ImageSet']['LargeImage']['URL']
+        end
+
+        item_attributes = {name: name, 
+                            asin: asin, 
+                            category: nil, 
+                            img_url: img_url,
+                            price: price}
+
+      item = Item.new(item_attributes)
+      item.save
+
+      end
+    sleep 1
+    end
+  end
 end
 
 
