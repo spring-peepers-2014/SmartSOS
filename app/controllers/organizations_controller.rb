@@ -14,6 +14,7 @@ class OrganizationsController < ApplicationController
 		if @organization.save
 			redirect organization_path(@org)
 		else
+			flash[:alert] = "Apologies. Your Organization has not been registered."
 			render 'new'
 		end
 	end
@@ -28,5 +29,17 @@ class OrganizationsController < ApplicationController
 	end
 
 	def destroy
+		@organization = Organization.find(params)
+		flash[:alert] = "Success. Your Organization has been removed."
+		redirect_to root_path
+	end
+
+	private
+
+
+	def set_organization
+		@organization = Organization.find(params[:id])
+	rescue ActiveRecord::RecordNotFound
+		flash[:alert] = "The Organization you were looking for could not be found."
 	end
 end
