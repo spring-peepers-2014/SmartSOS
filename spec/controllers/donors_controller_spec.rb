@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-descrbe DonorsController do 
+describe DonorsController do 
 
 
 	describe 'GET #new' do 
 		it "assigns a new Donor to @donor" do 
 			get :new
-			expect(assigns(:donor)) to be_a_new(Donor)
+			expect(assigns(:donor)).to be_a_new(Donor)
 		end
 
 		it "renders the :new template" do 
@@ -110,7 +110,7 @@ descrbe DonorsController do
 
 			it "deletes the donor" do 
 				expect{
-					delete :destroy, :id: @donor 
+					delete :destroy, id: @donor
 				}.to change(Donor, :donor).by(-1)
 			end
 
