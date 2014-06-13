@@ -5,5 +5,5 @@ SmartSOS::Application.routes.draw do
 		resources :campaigns
 	end
 
-	resources :users, except: :index 
+	resources :donors, except: :index 
 end
