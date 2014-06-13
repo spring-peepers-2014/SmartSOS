@@ -43,3 +43,23 @@ feature 'Creating Organizations' do
 	end
 
 end
+
+feature 'Editing Organizations' do
+
+	before :each do
+		visit organization(create(:org))
+	end
+
+	describe 'Organization Administrators' do
+		scenario 'can edit an existing organization' do
+			expect(page).to have_content 'Update Organization'
+		end
+	end
+
+	describe 'Donors' do
+		scenario 'can NOT edit an existing organization' do
+			expect(page).to have_no_content 'Update Organization'
+		end
+	end
+
+end
