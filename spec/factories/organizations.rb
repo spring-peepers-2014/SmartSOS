@@ -1,6 +1,13 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+require 'faker'
 
-FactoryGirl.define do
-  factory :organization do
-  end
+FactoryGirl.define do 
+	factory :organization do 
+		name { Faker::Name.last_name }
+		email { Faker::Internet.email }
+	end
+
+	factory :invalid_organization do 
+		name { nil }
+		email { Faker::Internet.email }
+	end
 end
