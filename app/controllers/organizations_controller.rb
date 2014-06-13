@@ -1,5 +1,7 @@
 class OrganizationsController < ApplicationController
+
 	def index
+		@orgs = Organization.all
 	end
 
 	def new
