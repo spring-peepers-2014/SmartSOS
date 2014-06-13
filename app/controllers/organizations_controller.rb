@@ -1,7 +1,11 @@
 class OrganizationsController < ApplicationController
+	before_ation :set_organization, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@organizations = Organization.all
+	end
+
+	def show
 	end
 
 	def new
@@ -25,11 +29,9 @@ class OrganizationsController < ApplicationController
 	def update
 	end
 
-	def show
-	end
-
 	def destroy
-		@organization = Organization.find(set_organization)
+		@organization.destroy
+
 		flash[:alert] = "Success. Your Organization has been removed."
 		redirect_to root_path
 	end
