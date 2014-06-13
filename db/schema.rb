@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140613030443) do
+ActiveRecord::Schema.define(version: 20140613034657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "campaigns", force: true do |t|
+    t.integer  "organization_id"
     t.text     "description"
     t.date     "start_date"
     t.date     "end_date"
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140613030443) do
   end
 
   create_table "donors", force: true do |t|
+    t.integer  "campaign_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
@@ -53,6 +55,22 @@ ActiveRecord::Schema.define(version: 20140613030443) do
     t.string   "phone"
     t.text     "description"
     t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pledges", force: true do |t|
+    t.integer  "donor_id"
+    t.integer  "item_id"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "requests", force: true do |t|
+    t.integer  "campaign_id"
+    t.integer  "item_id"
+    t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,4 +1,4 @@
 class Request < ActiveRecord::Base
   belongs_to :campaign
-  belongs_to :item
+  belongs_to :requested_item, class_name: "Item"
 end

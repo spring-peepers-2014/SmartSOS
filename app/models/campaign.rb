@@ -3,5 +3,5 @@ class Campaign < ActiveRecord::Base
   belongs_to :organization
   has_many :donors
   has_many :requests
-  has_many :items, through: :requests
+  has_many :requested_items, through: :requests
 end
