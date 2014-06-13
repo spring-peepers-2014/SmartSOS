@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Creating Organizations' do
 	before :each do
-		visit '/'
+		visit root_url
 		click_link 'Register Organization'
 	end
 	
