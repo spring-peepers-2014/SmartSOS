@@ -29,7 +29,7 @@ class OrganizationsController < ApplicationController
 	end
 
 	def destroy
-		@organization = Organization.find(params)
+		@organization = Organization.find(set_organization)
 		flash[:alert] = "Success. Your Organization has been removed."
 		redirect_to root_path
 	end
