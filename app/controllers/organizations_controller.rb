@@ -13,10 +13,10 @@ class OrganizationsController < ApplicationController
 	end	
 
 	def create
-		@organization = Organization.new
+		@organization = Organization.new(organization_params)
 
 		if @organization.save
-			redirect organization_path(@org)
+			redirect organization_path(@organization)
 		else
 			flash[:alert] = "Apologies. Your Organization has not been registered."
 			render 'new'
@@ -27,6 +27,11 @@ class OrganizationsController < ApplicationController
 	end
 
 	def update
+		if @organization.update(organization_params)
+			redirect organization_path(@organization)
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
