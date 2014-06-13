@@ -1,6 +1,4 @@
 require 'spec_helper'
-
-
 describe Donor do 
 	
 	it "is valid with a first name, lastname, email and password" do 
