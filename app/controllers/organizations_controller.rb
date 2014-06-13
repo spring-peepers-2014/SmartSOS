@@ -36,6 +36,9 @@ class OrganizationsController < ApplicationController
 
 	private
 
+	def organization_params
+		params.require(:organization).permit(:name, :street, :city, :state, :zipcode, :email, :phone, :description, :password_digest, :url)
+	end
 
 	def set_organization
 		@organization = Organization.find(params[:id])
