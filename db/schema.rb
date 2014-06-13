@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20140613034657) do
   end
 
   create_table "donors", force: true do |t|
-    t.integer  "campaign_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
