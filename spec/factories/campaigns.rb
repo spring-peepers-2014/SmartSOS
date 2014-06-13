@@ -3,11 +3,12 @@ require 'faker'
 FactoryGirl.define do 
 	factory :campaign do 
 		name { Faker::Name.last_name }
-		email { Faker::Internet.email }
+		description { Faker::Lorem.paragraph }
+		# start_date
+		# end_date
 	end
 
 	factory :invalid_campaign do 
-		name { nil }
-		email { Faker::Internet.email }
+		name nil
 	end
 end
