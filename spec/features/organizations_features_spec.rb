@@ -13,11 +13,11 @@ feature 'Creating Organizations' do
 		fill_in 'City', with: 'ImagineLand'
 		fill_in 'State',with: 'FarAway'
 		fill_in 'Zip', with: '10011'
-		fill_in 'Phone Number', '1234567890'
-		fill_in	'Email', 'org@example.com'
-		fill_in 'Password', 'passwrod'
-		fill_in 'Password Confirmation', 'password'
-		fill_in 'Website URL', 'orgexample.com'
+		fill_in 'Phone Number', with:'1234567890'
+		fill_in	'Email', with: 'org@example.com'
+		fill_in 'Password', with: 'passwrod'
+		fill_in 'Password Confirmation', with: 'password'
+		fill_in 'Website URL', with: 'orgexample.com'
 		click_button 'Register Organization'
 
 		org = Organization.where(name: 'ExampleOrg').first
@@ -32,11 +32,11 @@ feature 'Creating Organizations' do
 		fill_in 'City', with: 'ImagineLand'
 		fill_in 'State',with: 'FarAway'
 		fill_in 'Zip', with: '10011'
-		fill_in 'Phone Number', '1234567890'
-		fill_in	'Email', 'org@example.com'
-		fill_in 'Password', 'passwrod'
-		fill_in 'Password Confirmation', 'password'
-		fill_in 'Website URL', 'orgexample.com'
+		fill_in 'Phone Number', with: '1234567890'
+		fill_in	'Email', with: 'org@example.com'
+		fill_in 'Password', with: 'passwrod'
+		fill_in 'Password Confirmation', with: 'password'
+		fill_in 'Website URL', with: 'orgexample.com'
 		click_button 'Register Organization'
 
 		expect(page).to have_content('Apologies. Your Organization has not been registered.')
@@ -47,18 +47,26 @@ end
 feature 'Editing Organizations' do
 
 	before :each do
-		visit organization(create(:org))
+		@org = create(:org, name: "Example", password: 'password')
 	end
 
 	describe 'Organization Administrators' do
 		scenario 'can edit an existing organization' do
+			visit '/'
+			click_link 'Log In Organization'
+			fill_in 'Name', with: 'Example'
+			fill_in 'Password', with: 'password'
+			click_button 'Login'
 			expect(page).to have_content 'Update Organization'
 		end
 	end
 
 	describe 'Donors' do
 		scenario 'can NOT edit an existing organization' do
-			expect(page).to have_no_content 'Update Organization'
+			visit organization(@org)
+			scenario 'can NOT edit an existing organization' do
+				expect(page).to have_no_content 'Update Organization'
+			end
 		end
 	end
 
