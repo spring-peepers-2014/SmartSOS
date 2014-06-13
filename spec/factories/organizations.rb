@@ -1,7 +1,7 @@
 require 'faker'
 
 FactoryGirl.define do 
-	factory :org do 
+	factory :organization do 
 		name { Faker::Name.last_name }
 		address { Faker::Address.street_address }
 		city { Faker::Address.city }
@@ -15,7 +15,7 @@ FactoryGirl.define do
 		website { Faker::Internet.url }
 	end
 
-	factory :invalid_org do 
+	factory :invalid_organization do 
 		name nil
 	end
 end

@@ -47,7 +47,7 @@ end
 feature 'Editing Organizations' do
 
 	before :each do
-		@org = create(:org, name: "Example", password: 'password')
+		@org = create(:organization, name: "Example", password: 'password')
 	end
 
 	describe 'Organization Administrators' do

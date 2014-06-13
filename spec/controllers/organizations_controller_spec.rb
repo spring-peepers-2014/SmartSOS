@@ -4,25 +4,25 @@ describe OrganizationsController do
 
 	describe 'GET #index' do 
 		it 'assigns all organizations to @organizations' do
-			org1 = create(:org)
-			org2 = create(:org)
+			org1 = create(:organization)
+			org2 = create(:organization)
 			get :index
-			expect(assigns(:orgs)).to match_array([org1, org2])
+			expect(assigns(:organizations)).to match_array([org1, org2])
 		end
 	end
 
 	describe 'GET #show' do
 		it 'assigns the requested organization to @org' do
-			org = create(:org)
+			org = create(:organization)
 			get :edit, id: org
-			expect(assigns(:org)).to eq org
+			expect(assigns(:organization)).to eq org
 		end
 	end
 
 	describe 'GET #new' do 
 		it 'assigns a new organization to @org' do
 			get :new
-			expect(assigns(:org)).to be_a_new(Organization)
+			expect(assigns(:organization)).to be_a_new(Organization)
 		end 
 	end
 
@@ -30,7 +30,7 @@ describe OrganizationsController do
 		context 'with VALID attributes' do
 			it 'saves the new organization in the database' do
 				expect {
-					post :create, org: attributes_for(:org)
+					post :create, organization: attributes_for(:organization)
 				}.to change(Organization, :count).by(1)
 			end
 		end
@@ -38,7 +38,8 @@ describe OrganizationsController do
 		context 'with INVALID attributes' do
 			it "does NOT save the new organization in the database" do
 				expect {
-					post :create, org: attributes_for(:invalid_org)
+					raise 'needs to be fixed'
+					post :create, organization: attributes_for(:invalid_organization)
 				}.to_not change(Organization, :count)
 			end
 		end
@@ -46,17 +47,17 @@ describe OrganizationsController do
 
 	describe 'GET #edit' do
 		it 'assigns the requested organization to @org' do
-			org = create(:org)
+			org = create(:organization)
 			get :edit, id: org
-			expect(assigns(:org)).to eq org
+			expect(assigns(:organization)).to eq org
 		end
 	end
 
 
 	describe 'PATCH #update' do
 		it 'changes the attributes of an organization' do
-			org = create(:org, name: 'exampleName1')
-			patch :update, id: org, org: attributes_for(:org, name: 'exampleName2' )
+			org = create(:organization, name: 'exampleName1')
+			patch :update, id: org, organization: attributes_for(:organization, name: 'exampleName2' )
 			org.reload
 			expect(org.name).to eq('exampleName2')
 		end
@@ -64,7 +65,7 @@ describe OrganizationsController do
 
 	describe 'DELETE #destroy' do
 		it 'deletes an organization' do
-			org = create(:org)
+			org = create(:organization)
 			expect {
 				delete :destroy, id: org			
 			}.to change(Organization, :count).by(-1)

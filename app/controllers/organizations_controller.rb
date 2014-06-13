@@ -1,17 +1,17 @@
 class OrganizationsController < ApplicationController
 
 	def index
-		@orgs = Organization.all
+		@organizations = Organization.all
 	end
 
 	def new
-		@org = Organization.new
+		@organization = Organization.new
 	end
 
 	def create
-		@org = Organization.new
+		@organization = Organization.new
 
-		if @org.save
+		if @organization.save
 			redirect organization_path(@org)
 		else
 			render 'new'
