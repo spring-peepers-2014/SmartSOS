@@ -12,9 +12,11 @@ describe OrganizationsController do
 	end
 
 	describe 'GET #show' do
-		org = create(:org)
-		get :edit, id: org
-		expect(assigns(:org)).to eq org
+		it 'assigns the requested organization to @org' do
+			org = create(:org)
+			get :edit, id: org
+			expect(assigns(:org)).to eq org
+		end
 	end
 
 	describe 'GET #new' do 
@@ -54,18 +56,19 @@ describe OrganizationsController do
 	describe 'PATCH #update' do
 		it 'changes the attributes of an organization' do
 			org = create(:org, name: 'exampleName1')
-			patch :update, id: org
-			org: attributes_for(:org, name: 'exampleName2' )
+			patch :update, id: org, org: attributes_for(:org, name: 'exampleName2' )
 			org.reload
 			expect(org.name).to eq('exampleName2')
 		end
 	end
 
 	describe 'DELETE #destroy' do
-		org = create(:org)
-		expect {
-			delete :destroy, id: org			
-		}.to change(Organization, :count).by(-1)
+		it 'deletes an organization' do
+			org = create(:org)
+			expect {
+				delete :destroy, id: org			
+			}.to change(Organization, :count).by(-1)
+		end
 	end
 
 end
