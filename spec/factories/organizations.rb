@@ -3,7 +3,7 @@ require 'faker'
 FactoryGirl.define do 
 	factory :organization do 
 		name { Faker::Name.last_name }
-		address { Faker::Address.street_address }
+		street { Faker::Address.street_address }
 		city { Faker::Address.city }
 		state { Faker::Address.state }
 		zip { Faker::Address.zip }
