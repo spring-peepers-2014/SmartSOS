@@ -6,13 +6,12 @@ FactoryGirl.define do
 		street { Faker::Address.street_address }
 		city { Faker::Address.city }
 		state { Faker::Address.state }
-		zip { Faker::Address.zip }
+		zipcode { Faker::Address.zip }
 		email { Faker::Internet.email }
-		phone_number '1234567890'
-		password 'password'
-		password_confirmation 'password'
+		phone '1234567890'
+		password_digest 'password'
 		description { Faker::Lorem.paragraph }
-		website { Faker::Internet.url }
+		url { Faker::Internet.url }
 	end
 
 	factory :invalid_organization do 

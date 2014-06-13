@@ -6,7 +6,7 @@ class OrganizationsController < ApplicationController
 
 	def new
 		@organization = Organization.new
-	end
+	end	
 
 	def create
 		@organization = Organization.new
