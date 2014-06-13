@@ -49,3 +49,57 @@ Migrating to CreateDonors (20140613025621)
   [1m[35m (0.1ms)[0m  ROLLBACK
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
   [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateItems (20140613030443)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (5.3ms)[0m  [1mCREATE TABLE "items" ("id" serial primary key, "asin" integer, "name" character varying(255), "category" character varying(255), "img_url" character varying(255), "price" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140613030443"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mItem Load (1.1ms)[0m  [1mSELECT "items".* FROM "items"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateItems (20140613030443)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.0ms)[0m  DROP TABLE "items"
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140613030443'[0m
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateItems (20140613030443)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "items" ("id" serial primary key, "asin" character varying(255), "name" character varying(255), "category" character varying(255), "img_url" character varying(255), "price" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140613030443"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItem Exists (0.6ms)[0m  SELECT 1 AS one FROM "items" WHERE "items"."asin" = '12343kjkdjf' LIMIT 1
+  [1m[36mSQL (4.2ms)[0m  [1mINSERT INTO "items" ("asin", "category", "created_at", "img_url", "name", "price", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["asin", "12343kjkdjf"], ["category", "Bookkkk"], ["created_at", Fri, 13 Jun 2014 03:40:49 UTC +00:00], ["img_url", "asdf"], ["name", "Book"], ["price", 1234], ["updated_at", Fri, 13 Jun 2014 03:40:49 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36mItem Load (0.7ms)[0m  [1mSELECT "items".* FROM "items" ORDER BY "items"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" ORDER BY "items"."id" ASC LIMIT 1
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" ORDER BY "items"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" ORDER BY "items"."id" ASC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateItems (20140613030443)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "items"
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140613030443'[0m
+  [1m[35m (1.9ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateItems (20140613030443)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "items" ("id" serial primary key, "asin" character varying(255), "name" character varying(255), "category" character varying(255), "img_url" character varying(255), "price" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140613030443"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mItem Exists (0.6ms)[0m  SELECT 1 AS one FROM "items" WHERE "items"."asin" = '12343kjkdjf' LIMIT 1
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO "items" ("asin", "category", "created_at", "img_url", "name", "price", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["asin", "12343kjkdjf"], ["category", "Bookkkk"], ["created_at", Fri, 13 Jun 2014 03:42:13 UTC +00:00], ["img_url", "asdf"], ["name", "Book"], ["price", 1234], ["updated_at", Fri, 13 Jun 2014 03:42:13 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mItem Load (0.8ms)[0m  [1mSELECT "items".* FROM "items" ORDER BY "items"."id" ASC LIMIT 1[0m
+  [1m[35mItem Load (0.5ms)[0m  SELECT "items".* FROM "items" ORDER BY "items"."id" ASC LIMIT 1
