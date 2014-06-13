@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-	before_ation :set_organization, only: [:show, :edit, :update, :destroy]
+	before_action :set_organization, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@organizations = Organization.all
@@ -16,7 +16,7 @@ class OrganizationsController < ApplicationController
 		@organization = Organization.new(organization_params)
 
 		if @organization.save
-			redirect organization_path(@organization)
+			redirect_to organization_path(@organization)
 		else
 			flash[:alert] = "Apologies. Your Organization has not been registered."
 			render 'new'
@@ -28,7 +28,7 @@ class OrganizationsController < ApplicationController
 
 	def update
 		if @organization.update(organization_params)
-			redirect organization_path(@organization)
+			redirect_to organization_path(@organization)
 		else
 			render 'edit'
 		end
