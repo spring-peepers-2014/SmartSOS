@@ -15,6 +15,7 @@ class OrganizationsController < ApplicationController
 	def create
 		@organization = Organization.new(organization_params)
 		if @organization.save
+			session[:organization_id] = @organization.id
 			redirect_to organization_path(@organization)
 		else
 			flash[:alert] = "Apologies. Your Organization has not been registered."

@@ -9,9 +9,10 @@ class DonorsController < ApplicationController
 		@donor = Donor.new(donor_params)
 
 		if @donor.save
+			session[:donor_id] = @donor.id
 			redirect_to donor_path(@donor)
 		else
-			flash[:alert] = "Sorry."
+			flash[:alert] = "Apologies. Your Registration was not recorded."
 			render 'new'  
 		end
 	end
