@@ -82,5 +82,32 @@ describe 'GET #index' do
     end
   end
 
+  describe 'GET #show' do
+    it 'assigns @campaign to a record of Campaign' do
+      get :show, organization_id: campaign.organization, id: campaign
+      expect(assigns(:campaign)).to eq campaign
+    end
+
+    it 'renders campaign show page' do
+      get :show, organization_id: campaign.organization, id: campaign
+      expect(response).to render_template :show
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    it 'deletes requested campaign' do
+      campaign = create(:campaign)
+      expect{
+        delete :destroy, organization_id: campaign.organization, id: campaign
+      }.to change(Campaign, :count).by(-1)
+    end
+
+    it 'should redirect to index page' do
+      campaign = create(:campaign)
+      delete :destroy, organization_id: campaign.organization, id: campaign
+      expect(response).to redirect_to organization_campaigns_path(campaign.organization)
+    end
+  end
+
 
 end

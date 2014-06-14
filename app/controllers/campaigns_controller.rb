@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-	before_action :set_campaign, only:[:edit, :update]
+	before_action :set_campaign, only:[:edit, :update, :show, :destroy]
 
 	def show_all
 		@campaigns = Campaign.all
@@ -25,13 +25,13 @@ class CampaignsController < ApplicationController
 	end
 
 	def edit
-		@campaign = Campaign.find(params[:id])
 	end
 
 	def update
 		if @campaign.update(campaign_params)
 			redirect_to organization_campaign_path(@campaign.organization, @campaign)
 		else
+			flash[:error] = "#{@campaign.errors.full_messages}"
 			render 'edit'
 		end
 	end
@@ -40,6 +40,8 @@ class CampaignsController < ApplicationController
 	end
 
 	def destroy
+		@campaign.destroy
+		redirect_to organization_campaigns_path(@campaign.organization_id)
 	end
 
 	private

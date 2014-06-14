@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe OrganizationsController do 
+describe OrganizationsController do
 
-	describe 'GET #index' do 
+	describe 'GET #index' do
 		it 'assigns all organizations to @organizations' do
 			org1 = create(:organization)
 			org2 = create(:organization)
@@ -19,11 +19,11 @@ describe OrganizationsController do
 		end
 	end
 
-	describe 'GET #new' do 
+	describe 'GET #new' do
 		it 'assigns a new organization to @org' do
 			get :new
 			expect(assigns(:organization)).to be_a_new(Organization)
-		end 
+		end
 	end
 
 	describe 'POST #create' do
@@ -66,7 +66,7 @@ describe OrganizationsController do
 		it 'deletes an organization' do
 			org = create(:organization)
 			expect {
-				delete :destroy, id: org			
+				delete :destroy, id: org
 			}.to change(Organization, :count).by(-1)
 		end
 	end
