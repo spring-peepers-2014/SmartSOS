@@ -8,10 +8,19 @@ FactoryGirl.define do
 		state { Faker::Address.state }
 		zipcode { Faker::Address.zip }
 		email { Faker::Internet.email }
+<<<<<<< HEAD
 		phone '1234567890'
 		password_digest 'password'
 		description { Faker::Lorem.paragraph }
 		url { Faker::Internet.url }
+=======
+		password { 'password' }
+		password_confirmation { 'password' } 
+		phone { '1234567890' }
+		description { Faker::Lorem.paragraph }
+		url { Faker::Internet.url }
+	end
+>>>>>>> development
 
 		factory :invalid_organization do 
 			name nil

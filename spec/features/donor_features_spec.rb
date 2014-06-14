@@ -58,3 +58,20 @@ feature 'Donor Sign In' do
 	end
 
 end
+
+feature 'Donor view actions' do
+
+	scenario 'donor can view all campaigns without logging in' do
+		visit root_path
+		click_link 'View All Campaigns'
+		expect(current_path).to eq #put path
+	end
+
+	scenario 'donor can view a specific campaign' do
+		visit root_path
+		expect(page).to have_content 'New Campaigns'
+		first(:link, 'view details').click
+		expect(page).to have_content ''
+	end
+
+end
