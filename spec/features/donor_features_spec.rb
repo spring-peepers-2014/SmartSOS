@@ -13,7 +13,7 @@ feature 'Donor Sign Up' do
 		fill_in 'Email', with: donor.email
 		fill_in 'Password', with: donor.password_digest
 		click_button 'Register Donor'
-		expect(current_path).to eq donor
+		expect(current_path).to eq donor_path(donor)
 	end
 
 	scenario 'invalid sign up' do
