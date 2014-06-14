@@ -14,7 +14,6 @@ class OrganizationsController < ApplicationController
 
 	def create
 		@organization = Organization.new(organization_params)
-
 		if @organization.save
 			redirect_to organization_path(@organization)
 		else
@@ -44,7 +43,7 @@ class OrganizationsController < ApplicationController
 	private
 
 	def organization_params
-		params.require(:organization).permit(:name, :street, :city, :state, :zipcode, :email, :phone, :description, :password_digest, :url)
+		params.require(:organization).permit(:name, :street, :city, :state, :zipcode, :email, :phone, :description, :password, :password_confirmation, :url)
 	end
 
 	def set_organization
