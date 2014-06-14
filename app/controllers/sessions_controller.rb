@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 			end
 		else
 			flash.now.alert = 'Invalid Organization Name'
-			render 'new_organization'
+			render 'organizations_new'
 		end
 	end
 
@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
 			end
 		else
 			flash.now.alert = 'Invalid Email'
-			render 'new_donor'
+			render 'donors_new'
 		end
 	end
 
