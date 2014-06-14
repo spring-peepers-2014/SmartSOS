@@ -54,7 +54,7 @@ feature 'Editing Organizations' do
 	describe 'Organization Administrators' do
 		scenario 'can edit an existing organization' do
 			visit '/'
-			click_link 'Log In Organization'
+			click_link 'Organization Log In'
 			fill_in 'Name', with: 'Example'
 			fill_in 'Password', with: 'password'
 			click_button 'Login'
@@ -64,10 +64,8 @@ feature 'Editing Organizations' do
 
 	describe 'Donors' do
 		scenario 'can NOT edit an existing organization' do
-			visit organization(@org)
-			scenario 'can NOT edit an existing organization' do
-				expect(page).to have_no_content 'Update Organization'
-			end
+			visit organization_url(@org)
+			expect(page).to have_no_content 'Update Organization'
 		end
 	end
 
