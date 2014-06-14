@@ -1,16 +1,16 @@
 <%= form_for(@organization) do |f| %>
 
-<% if @organization.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@organization.errors.count, "error") %> prohibited this organization from being registered:</h2>
+	<% if @organization.errors.any? %>
+			<div id="error_explanation">
+				<h2><%= pluralize(@organization.errors.count, "error") %> prohibited this organization from being registered:</h2>
 
-			<ul>
-				<% @organization.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
-			</ul>
-		</div>
-<% end %>
+				<ul>
+					<% @organization.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+	<% end %>
 
 	<p>
 		<%= f.label :name %><br />
@@ -23,7 +23,7 @@
 	</p>
 
 	<p>
-		<%= f.label :address %><br />
+		<%= f.label :street, "Address" %><br />
 		<%= f.text_field :street %>
 	</p>
 
@@ -38,7 +38,7 @@
 	</p>
 
 	<p>
-		<%= f.label :zip %><br />
+		<%= f.label :zipcode, "Zip" %><br />
 		<%= f.text_field :zipcode %>
 	</p>
 
@@ -58,16 +58,15 @@
 	</p>
 
 	<p>
-		<%= f.label :password_confirmation %><br />
+		<%= f.label :password_confirmation, "Password Confirmation" %><br />
 		<%= f.text_field :password_confirmation %>
 	</p>
 
 	<p>
-		<%= f.label :website_url %><br />
-		<%= f.text_field :website_url %>
+		<%= f.label :url, "Website URL" %><br />
+		<%= f.text_field :url %>
 	</p>
 
-	<%= f.submit %>
+	<%= f.submit "Register Organization" %>
 
 <% end %>
-  
