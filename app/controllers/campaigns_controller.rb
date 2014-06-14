@@ -1,4 +1,5 @@
 class CampaignsController < ApplicationController
+	before_action :set_campaign, only:[:edit, :update]
 
 	def show_all
 		@campaigns = Campaign.all
@@ -28,11 +29,11 @@ class CampaignsController < ApplicationController
 	end
 
 	def update
-		p params
-		@campaign = Campaign.find(params[:id])
-		@campaign.update_attributes(campaign_params)
-		p @campaign.errors.full_messages
-		redirect_to organization_campaign_path
+		if @campaign.update(campaign_params)
+			redirect_to organization_campaign_path(@campaign.organization, @campaign)
+		else
+			render 'edit'
+		end
 	end
 
 	def show
@@ -45,6 +46,12 @@ class CampaignsController < ApplicationController
 
 	def campaign_params
 		params.require(:campaign).permit(:organization_id, :name, :description, :start_date, :end_date)
+	end
+
+	def set_campaign
+		@campaign = Campaign.find(params[:id])
+	rescue ActiveRecord::RecordNotFound
+		flash[:alert] = "The Organization you were looking for could not be found."
 	end
 
 end

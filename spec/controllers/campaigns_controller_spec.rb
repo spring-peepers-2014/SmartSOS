@@ -68,17 +68,18 @@ describe 'GET #index' do
   end
 
   describe 'POST #update' do
-    it 'with valid attributes'
-    #   post :update, organization_id: campaign.organization.id,
-    #     id: campaign.id, campaign: { name: "new name",
-    #                                   description: "new description",
-    #                                   start_date: '11-11-2011',
-    #                                   end_date: '12-12-2012' }
-    #   # expect(response).to redirect_to organization_campaign_path(campaign.organization.id, campaign.id)
-    #   # expect(response).to be_success
-    # end
+    it 'with valid attributes' do
+      campaign = create(:campaign, name: 'Campaign Name')
+      patch :update, id: campaign, organization_id: campaign.organization, campaign: attributes_for(:campaign, name: 'Edited Campaign Name')
+      campaign.reload
+      expect(campaign.name).to eq('Edited Campaign Name')
+    end
 
-    it 'with invalid attributes'
+    it 'with invalid attributes' do
+      campaign = create(:campaign, name: 'Campaign Name')
+      patch :update, id: campaign, organization_id: campaign.organization, campaign: attributes_for(:campaign, name: '')
+      expect(response).to render_template :edit
+    end
   end
 
 
