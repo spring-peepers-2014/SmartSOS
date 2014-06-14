@@ -16,4 +16,3 @@ production:
   database: smart_sos_production
   pool: 5
 
-  
