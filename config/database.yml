@@ -1,0 +1,13 @@
+development:
+  encoding: unicode
+  adapter: postgresql
+  pool: 5
+  database: smart_sos_development
+
+
+test: 
+  encoding: unicode
+  adapter: postgresql
+  pool: 5
+  database: smart_sos_test
+
