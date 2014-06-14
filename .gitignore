@@ -8,7 +8,7 @@ config/database.yml
 /.bundle
 /vendor/bundle
 /log/*
-/tmp/*
+/tmp
 /db/*.pg
 /public/system/*
 /coverage/
