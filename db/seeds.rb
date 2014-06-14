@@ -1,5 +1,9 @@
 require 'faker'
 require 'sucker'
+require 'yaml'
+
+config_hash = YAML::load_file('config/secrets.yml')
+
 
 organization_names = ["Red Cross", "Children's Disaster Services"]
 
@@ -13,8 +17,8 @@ general_search_items.each do |item|
 
     worker = Sucker.new(
       :associate_tag => 'sm0cd-2',
-      :key => 'AKIAJPKJ66LAGWDBFAHA',
-      :secret => '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',
+      :key => config_hash['development']['access_key_id'],
+      :secret => config_hash['development']['secret_access_key'],
       :locale => :us)
 
 
@@ -29,7 +33,6 @@ general_search_items.each do |item|
 
 
     response = worker.get
-
 
     response.each('Item') do |i|
 
@@ -54,7 +57,9 @@ general_search_items.each do |item|
                             price: price}
 
       item = Item.new(item_attributes)
-      item.save
+      if item.save
+        puts "NICE!"
+      end
 
       end
     sleep 1
