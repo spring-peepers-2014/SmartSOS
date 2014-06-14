@@ -16,14 +16,14 @@ describe DonorsController do
 
 
 	describe 'GET #show' do 
-		it "assisngs the requested donor to @donor" do
-			donor = FactoryGirl.build(:donor)
+		it "assigns the requested donor to @donor" do
+			donor = create(:donor)
 			get :show, id: donor 
 			expect(assigns(:donor)).to eq donor
 		end
 		
 		it "renders the :show template" do 
-			donor = FactoryGirl.build(:donor)
+			donor = create(:donor)
 			get :show, id: donor 
 			expect(response).to render_template :show
 		end
@@ -32,12 +32,12 @@ describe DonorsController do
 
 	describe 'GET #edit' do 
 		it "assigns the requested donor to @donor" do 
-			donor = FactoryGirl.build(:donor)
+			donor = create(:donor)
 			get :edit, id: donor 
 			expect(assigns(:donor)).to eq donor
 		end
 		it "renders the :edit template" do 
-			donor = FactoryGirl.build(:donor) 
+			donor = create(:donor) 
 			get :edit, id: donor
 			expect(response).to render_template :edit
 		end
@@ -47,81 +47,84 @@ describe DonorsController do
 
 		context "with valid attributes" do 
 			it "saves the new donor in the database" do 
-				donor = FactoryGirl.build(:donor)
 				expect{
-					post :create, donor: attributes_for(donor)
-			}.to change(Donor, :donor).by(1)
-			end
-
-			it "redirect to donors#show" do 
+					post :create, donor: attributes_for(:donor)
+			}.to change(Donor, :count).by(1)
 			end
 		end
+
+			it "redirect to donors#show" do 
+				post :create, donor: attributes_for(:donor)
+				expect(response).to redirect_to donor_path(assigns[:donor])
+			end
+
 
 		context "with invalid attributes" do 
 			it "does not save the new donor in the database" do 
 				expect {
-					post :create,
-						donor: attributes_for(FactoryGirl.build(:invalid_donor))
-				}.to_not change(Donor, :donor)
+					post :create, donor: attributes_for(:invalid_donor)
+				}.to_not change(Donor, :count)
 			end
 
 			it "re-renders the :new template" do 
-				post :create,
-					donor: attributes_for(FactoryGirl.build(:invalid_donor))
+					post :create, donor: attributes_for(:invalid_donor)
 					expect(response).to render_template :new 
-			end
-		end
-
-		describe 'PATCH #update' do 
-			before :each do 
-				@donor = FactoryGirl.create(:donor)
-			end
-
-			context "valid attributes" do 
-				it "locates the requested @donor" do 
-					patch :update, id: @donor, donor: attributes_for(:donor)
-					expect(assigns(:donor)).to eq(@donor)
-				end
-
-				it "changes @donor's attributes" do 
-					patch :update, id: @donor,
-						donor: attributes_for(:donor,
-							first_name: "Payam",
-							last_name: "Pakmanesh",
-							email: "p.Pakmanesh@gmail.com",
-							password: "password")
-						@donor.reload
-						expect(@donor.first_name).to eq("Payam")
-						expect(@donor.first_name).to eq("Pakmanesh")
-				end
-
-				it "redirects to the updated donor" do 
-					patch :update, id: @donor, donor: attributes_for(:donor)
-					expect(response).to redirect_to @donor
-				end
-			end
-		end 
-
-		describe 'POST #destroy' do 
-			before :each do 
-				@donor = FactoryGirl.create(:donor)
-			end
-
-			it "deletes the donor" do 
-				expect{
-					delete :destroy, id: @donor
-				}.to change(Donor, :donor).by(-1)
-			end
-
-			it "redirects to home page" do 
-				delete :destroy, id: @donor 
-				expect(response).to redirect_to root_path
 			end
 		end
 
 	end
 
-end 
+	describe 'PATCH #update' do 
+		before :each do 
+			@donor = create(:donor)
+		end
+
+		context "valid attributes" do 
+			it "locates the requested @donor" do 
+				patch :update, id: @donor, donor: attributes_for(:donor)
+				expect(assigns(:donor)).to eq(@donor)
+			end
+
+			it "changes @donor's attributes" do 
+				patch :update, id: @donor,
+					donor: attributes_for(:donor,
+						first_name: "Payam",
+						last_name: "Pakmanesh",
+						email: "p.Pakmanesh@gmail.com",
+						password: "password")
+					@donor.reload
+					expect(@donor.first_name).to eq("Payam")
+					expect(@donor.last_name).to eq("Pakmanesh")
+			end
+
+			it "redirects to the updated donor" do 
+				patch :update, id: @donor, donor: attributes_for(:donor)
+				expect(response).to redirect_to @donor
+			end
+		end
+	end 
+
+	describe 'POST #destroy' do 
+		before :each do 
+			@donor = create(:donor)
+		end
+
+		it "deletes the donor" do 
+			expect{
+				delete :destroy, id: @donor
+			}.to change(Donor, :count).by(-1)
+		end
+
+		it "redirects to home page" do 
+			delete :destroy, id: @donor 
+			expect(response).to redirect_to root_path
+		end
+	end
+
+end
+
+
+
 
 
 

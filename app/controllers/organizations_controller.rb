@@ -38,7 +38,7 @@ class OrganizationsController < ApplicationController
 
 		flash[:alert] = "Success. Your Organization has been removed."
 		redirect_to root_path
-	end
+	end	
 
 	private
 
