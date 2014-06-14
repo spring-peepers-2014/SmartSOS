@@ -8,6 +8,13 @@
 </head>
 <body>
 
+<!-- Alex added this in to display success/failure on form submit -->
+<% flash.each do |key, value| %>
+	<div class='flash' id='<%= key %>'>
+		<%= value %>
+	</div>
+<% end %>
+
 <%= yield %>
 
 </body>
