@@ -1,3 +1,7 @@
 <% if session[:organization_id] %>
 	<%= link_to "Update Organization", edit_organization_path(@organization) %>
 <% end %>
+
+<% @organization.campaigns.each do |campaign| %>
+	<%= link_to campaign.name, organization_campaign_path(campaign.organization, campaign) %>
+<% end %>
