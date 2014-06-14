@@ -1,0 +1,8 @@
+<% if session[:organization_id] || session[:donor_id] %>
+	<%= link_to "Log Out", sessions_logout_path %>
+<% else %>
+	<%= link_to "Register Donor", new_donor_path %>
+	<%= link_to "Register Organization", new_organization_path %>
+	<%= link_to "Donor Log In", donors_login_path %>
+	<%= link_to "Organization Log In", organizations_login_path %>
+<% end %>
