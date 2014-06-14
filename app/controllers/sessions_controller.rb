@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 	end
 
 	def organizations_create
-		if organization = Organization.find_by_name(params[:name])
+		if organization = Organization.find_by_email(params[:email])
 			if organization.authenticate(params[:password])
 				session[:organization_id] = organization.id
 				redirect_to organization_path(organization)
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
 	end
 
 	def donors_create
-		if doner = Doner.find_by_name(params[:email])
+		if doner = Doner.find_by_email	(params[:email])
 			if donor.authenticate(params[:password])
 				session[:donor_id] = donor.id
 				redirect_to donor_path(donor)

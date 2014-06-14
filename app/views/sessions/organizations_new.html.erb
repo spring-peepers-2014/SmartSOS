@@ -1,0 +1,12 @@
+<h1>Organization Login</h1>
+
+<%= form_tag organization_login_path do %>
+
+  <%= label_tag :email %> <br>
+  <%= text_field_tag :email, params[:email] %>
+
+  <%= label_tag :password %> <br>
+	<%= password_field_tag :password, params[:password] %>
+
+  <%= submit_tag(value = "Login Organization") %>
+<% end %>
