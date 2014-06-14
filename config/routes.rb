@@ -7,6 +7,7 @@ SmartSOS::Application.routes.draw do
 
 	resources :donors, except: :index 
 
+	# SESSION ROUTES
 	get '/sessions/login/organizations' => 'sessions#organizations_new', as: :organizations_login  
 	post '/sessions/create/organizations' => 'sessions#organizations_create'  
 
