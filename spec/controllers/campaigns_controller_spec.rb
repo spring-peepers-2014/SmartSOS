@@ -2,17 +2,14 @@ require 'spec_helper'
 
 describe CampaignsController do
   let(:campaign) { create :campaign }
-# let!(:organization) { create :organization }
 
 describe 'GET #index' do
   it 'assigns all campaigns of the organization to @organization_campaigns' do
-      # campaign = create(:campaign)
       get :index, organization_id: campaign.organization.id
       expect(assigns(:organization_campaigns)).to match_array([campaign])
     end
 
     it 'renders campaigns index page' do
-      # campaign = create(:campaign)
       get :index, organization_id: campaign.organization.id
       expect(response).to render_template :index
     end
@@ -20,7 +17,6 @@ describe 'GET #index' do
 
   describe 'GET #show_all' do
     it 'assigns all campaigns to @campaigns' do
-      # campaign1 = create(:campaign)
       campaign2 = create(:campaign)
       get :show_all
       expect(assigns(:campaigns)).to match_array([campaign, campaign2])
