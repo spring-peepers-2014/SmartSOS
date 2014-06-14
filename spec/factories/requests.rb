@@ -2,5 +2,8 @@
 
 FactoryGirl.define do
   factory :request do
+    association :campaign
+    assocation :item
+    quantity { rand(10) }
   end
 end

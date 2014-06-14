@@ -1,13 +1,18 @@
 development:
-  encoding: unicode
   adapter: postgresql
-  pool: 5
+  encoding: unicode
   database: smart_sos_development
-
-
-test: 
-  encoding: unicode
-  adapter: postgresql
   pool: 5
+
+test:
+  adapter: postgresql
+  encoding: unicode
   database: smart_sos_test
+  pool: 5
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: smart_sos_production
+  pool: 5
 

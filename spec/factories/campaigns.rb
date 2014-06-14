@@ -2,10 +2,11 @@ require 'faker'
 
 FactoryGirl.define do 
 	factory :campaign do 
-		name { Faker::Name.last_name }
+    association :organization
+		name { Faker::Lorem.word }
 		description { Faker::Lorem.paragraph }
-		# start_date
-		# end_date
+		start_date { '02-06-2014' }
+		end_date { '02-10-2014' }
 	end
 
 	factory :invalid_campaign do 
