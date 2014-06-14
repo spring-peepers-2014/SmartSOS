@@ -18,17 +18,11 @@ class SessionsController < ApplicationController
 		end
 	end
 
-	def organizations_destroy
-		reset_session
-		flash[:alert] = 'You have successfully logged out.'
-		redirect_to root_path
-	end
-
 	def donors_new
 	end
 
 	def donors_create
-		if doner = Doner.find_by_email	(params[:email])
+		if donor = Donor.find_by_email(params[:email])
 			if donor.authenticate(params[:password])
 				session[:donor_id] = donor.id
 				redirect_to donor_path(donor)
@@ -42,7 +36,7 @@ class SessionsController < ApplicationController
 		end
 	end
 
-	def donors_destroy
+	def logout
 		reset_session
 		flash[:alert] = 'You have successfully logged out.'
 		redirect_to root_path
