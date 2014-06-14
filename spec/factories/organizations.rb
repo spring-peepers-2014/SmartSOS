@@ -1,12 +1,12 @@
 require 'faker'
 
-FactoryGirl.define do 
-	factory :organization do 
+FactoryGirl.define do
+	factory :organization do
 		name { Faker::Name.last_name }
 		street { Faker::Address.street_address }
 		city { Faker::Address.city }
 		state { Faker::Address.state }
-		zipcode { Faker::Address.zip }
+		zipcode { '10000' }
 		email { Faker::Internet.email }
 		password { 'password' }
 		password_confirmation 'password'
@@ -14,9 +14,9 @@ FactoryGirl.define do
 		description { Faker::Lorem.paragraph }
 		url { Faker::Internet.url }
 
-		factory :invalid_organization do 
+		factory :invalid_organization do
 			name nil
 		end
-	
+
 	end
 end
