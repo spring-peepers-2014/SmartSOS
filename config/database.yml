@@ -1,20 +1,18 @@
-development: 
+development:
   adapter: postgresql
-  host: localhost
-  database: intro_to_rails_dev
+  encoding: unicode
+  database: smart_sos_development
   pool: 5
-  timeout: 5000
 
-test: 
+test:
   adapter: postgresql
-  host: localhost
-  database: intro_to_rails_test
+  encoding: unicode
+  database: smart_sos_test
   pool: 5
-  timeout: 5000
 
-production: 
+production:
   adapter: postgresql
-  host: localhost
-  database: intro_to_rails
+  encoding: unicode
+  database: smart_sos_production
   pool: 5
-  timeout: 5000
+
