@@ -12,8 +12,11 @@ class DonorsController < ApplicationController
 	end
 
 	def show
+		@donor = Donor.find(params[:id])
 	end
 
 	def destroy
 	end
+
+	
 end
