@@ -13,6 +13,6 @@ SmartSOS::Application.routes.draw do
 	get '/sessions/login/donors' => 'sessions#donors_new', as: :donors_login  
 	post '/sessions/create/donors' => 'sessions#donors_create'  
 
-	delete '/sessions/logout' => 'sessions#logout'  
+	get '/sessions/logout' => 'sessions#logout'  
 	
 end
