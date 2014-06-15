@@ -8,7 +8,8 @@ class Campaign < ActiveRecord::Base
   
   validates :name, presence: true
   validates :description, presence: true
+  validates_length_of :description, maximum: 500
   validates :start_date, presence: true
   validates :end_date, presence: true
-  
+  validates_date :end_date, :after => :start_date
 end

@@ -3,10 +3,11 @@ require 'spec_helper'
 feature 'Creating Organizations' do
 	before :each do
 		visit root_url
-		click_link 'Register Organization'
+		click_link 'Start A Campaign'
 	end
 	
 	scenario 'can register a new organization with VALID attributes' do
+		click_link 'Register New Organization'
 		fill_in 'Name', with: 'ExampleOrg'
 		fill_in 'Description', with: 'this is an example'
 		fill_in 'Address', with: '1111 Organization Ave'
@@ -27,6 +28,7 @@ feature 'Creating Organizations' do
 	end
 
 	scenario 'can NOT register a new organization with INVALID attributes' do
+		click_link 'Register New Organization'
 		fill_in 'Name', with: ''
 		fill_in 'Description', with: 'this is an example'
 		fill_in 'Address', with: '1111 Organization Ave'
@@ -48,14 +50,14 @@ end
 feature 'Editing Organizations' do
 
 	before :each do
-		@org = create(:organization, name: "Example", password: 'password', password_confirmation: 'password')
+		@org = create(:organization, email: "example@yahoo.com", password: 'password', password_confirmation: 'password')
 	end
 
 	describe 'Organization Administrators' do
 		scenario 'can edit an existing organization' do
 			visit '/'
-			click_link 'Organization Log In'
-			fill_in 'Name', with: 'Example'
+			click_link 'Start A Campaign'
+			fill_in 'Email', with: 'example@yahoo.com'
 			fill_in 'Password', with: 'password'
 			click_button 'Login'
 			expect(page).to have_content 'Update Organization'

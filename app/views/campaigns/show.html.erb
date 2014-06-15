@@ -1,0 +1,18 @@
+<h1><%= @campaign.name %></h1>
+<h2>If organization is signed in, there should be a button on bottom to checkout from Amazon</h2>
+<% if session[:organization_id] %>
+	<% i = 0 %>
+	<% @campaign.pledges.each do |pledge| %>
+	<% i = i + 1 %>
+		<form id="amazon" method="GET" action="http://www.amazon.com/gp/aws/cart/add.html" target="_blank">
+			<input type="hidden" name="AWSAccessKeyId" value=ENV["secret_access_key"] />
+			<input type="hidden" name="AssociateTag" value="Associate Tag" />
+			<input type="hidden" name="ASIN.<%="#{i}"%>" value="<%=pledge.pledged_item.asin%>" />
+			<input type="hidden" name="Quantity.<%="#{i}"%>" value="<%=pledge.quantity%>" />
+	<% end %>
+			<h4>Ready to get your requested items?</h4>
+			<input type="submit" name="add" value="Checkout from Amazon" />
+		</form>
+<% end %>
+
+
