@@ -1,0 +1,60 @@
+<%= form_for(@organization) do |f| %>
+
+	<p>
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.label :description %><br />
+		<%= f.text_field :description %>
+	</p>
+
+	<p>
+		<%= f.label :street, "Address" %><br />
+		<%= f.text_field :street %>
+	</p>
+
+	<p>
+		<%= f.label :city %><br />
+		<%= f.text_field :city %>
+	</p>
+
+	<p>
+		<%= f.label :state %><br />
+		<%= f.text_field :state %>
+	</p>
+
+	<p>
+		<%= f.label :zipcode, "Zip" %><br />
+		<%= f.text_field :zipcode %>
+	</p>
+
+	<p>
+		<%= f.label :phone %><br />
+		<%= f.text_field :phone %>
+	</p>
+
+	<p>
+		<%= f.label :email %><br />
+		<%= f.text_field :email %>
+	</p>
+
+	<p>
+		<%= f.label :password %><br />
+		<%= f.password_field :password %>
+	</p>
+
+	<p>
+		<%= f.label :password_confirmation, "Password Confirmation" %><br />
+		<%= f.password_field :password_confirmation %>
+	</p>
+
+	<p>
+		<%= f.label :url, "Website URL" %><br />
+		<%= f.text_field :url %>
+	</p>
+
+	<%= f.submit "Register Organization" %>
+
+<% end %>

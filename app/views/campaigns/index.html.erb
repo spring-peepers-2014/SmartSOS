@@ -1,1 +1,3 @@
-<p>TESTING 123</p>
+<% @campaigns.each do |campaign| %>
+	<%= link_to campaign.name, organization_campaign_path(campaign) %>
+<% end %>

@@ -1,0 +1,16 @@
+<%= form_tag sessions_create_donors_path do %>
+
+	<p>
+	  <%= label_tag :email %> <br>
+	  <%= text_field_tag :email, params[:email] %>
+  </p>
+
+  <p>
+	  <%= label_tag :password %> <br>
+		<%= password_field_tag :password, params[:password] %>
+	</p>
+
+  <%= submit_tag(value = "Login") %>
+<% end %>
+
+<%= link_to "Register New Donor", new_donor_path %>
