@@ -1,5 +1,7 @@
 <div class="show_all_campaigns">
 	<% @campaigns.each do |campaign| %>
-	  <%= render 'one_campaign', :campaign => campaign %>
+    <div class="campaign col-md-4">
+  	  <%= render 'one_campaign', :campaign => campaign %>
+    </div>
 	<% end %>
 </div>
