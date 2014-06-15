@@ -1,8 +1,8 @@
+<%= link_to "Browse Campaigns", campaigns_path %>
+<%= link_to "Browse Organizations", organizations_path %>
+<%= link_to "Make A Pledge", donors_login_path %>
+<%= link_to "Start A Campaign", organizations_login_path %>
+
 <% if session[:organization_id] || session[:donor_id] %>
 	<%= link_to "Log Out", sessions_logout_path %>
-<% else %>
-	<%= link_to "Browse Campaigns", campaigns_path %>
-	<%= link_to "Browse Organizations", organizations_path %>
-	<%= link_to "Make A Pledge", donors_login_path %>
-	<%= link_to "Start A Campaign", organizations_login_path %>
 <% end %>
