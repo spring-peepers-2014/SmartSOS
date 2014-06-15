@@ -1,0 +1,22 @@
+<% if session[:organization_id] %>
+<%= link_to "Edit Organization", edit_organization_path(@organization), class: "edit-org" %>
+<% end %>
+
+<div class="container">
+  <h1 class="dashboard-title">Campaign Dashboard</h1>
+  <%= link_to "Create New Campaign", new_organization_campaign_path(@organization) %>
+</div>
+
+<div class="container" id="dashboard-container">
+  <div class="row">
+    <% @organization.campaigns.each do |campaign| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="campaign-holder">
+        <img data-src="holder.js/300x200" alt="...">
+          <p><%= campaign.name %></p>
+          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

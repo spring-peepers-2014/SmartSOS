@@ -12,6 +12,9 @@ SmartSOS::Application.routes.draw do
 
 	resources :donors, except: [:index]
 
+	# DASHBOARD ROUTE
+	get '/organizations/:id/dashboard' => 'organizations#dashboard', as: :show_dashboard
+
 	# REQUEST ROUTES
 	get '/organizations/:organization_id/campaigns/:campaign_id/make_requests' => 'requests#make_requests', as: :make_requests
 	get '/organizations/:organization_id/campaigns/:campaign_id/edit_requests' => 'requests#edit_requests', as: :edit_requests
