@@ -1,9 +1,9 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+require 'faker'
 
 FactoryGirl.define do
   factory :request do
     association :campaign
-    assocation :item
+    # association :item, factory: :item
     quantity { rand(10) }
   end
 end
