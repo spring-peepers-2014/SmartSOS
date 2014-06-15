@@ -2,15 +2,16 @@ SmartSOS::Application.routes.draw do
 
 	root :to => 'campaigns#show_all'
 	resources :organizations do
-		resources :campaigns
+		resources :campaigns do
 			resources :requests, except: [:show, :edit, :new]
+		end
 	end
 
 	resources :donors, except: [:index]
 
 	# REQUEST ROUTES
-	get '/organizations/:organization_id/campaigns/:id/make_requests' => 'requests#make_requests', as: :make_requests
-	get '/organizations/:organization_id/campaigns/:id/edit_requests' => 'requests#edit_requests', as: :edit_requests
+	get '/organizations/:organization_id/campaigns/:campaign_id/make_requests' => 'requests#make_requests', as: :make_requests
+	get '/organizations/:organization_id/campaigns/:campaign_id/edit_requests' => 'requests#edit_requests', as: :edit_requests
 
 
 	# SESSION ROUTES
