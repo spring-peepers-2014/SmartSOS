@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
 				redirect_to donor_path(donor)
 			else
 				flash.now.alert = 'Invalid Password'
-				render 'new_donor'
+				render 'donors_new'
 			end
 		else
 			flash.now.alert = 'Invalid Email'

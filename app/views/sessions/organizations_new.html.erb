@@ -10,5 +10,8 @@
 	<%= password_field_tag :password, params[:password] %>
 	</p>
 
-  <%= submit_tag(value = "Organization Login") %>
+  <%= submit_tag(value = "Login") %>
 <% end %>
+
+<%= link_to "Register New Organization", new_organization_path %>
+
