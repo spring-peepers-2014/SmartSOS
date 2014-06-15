@@ -1,6 +1,8 @@
 SmartSOS::Application.routes.draw do
+	root :to => 'application#homepage'
 
-	root :to => 'campaigns#show_all'
+	get '/campaigns' => 'campaigns#show_all', as: :campaigns
+
 	resources :organizations do
 		resources :campaigns
 	end
