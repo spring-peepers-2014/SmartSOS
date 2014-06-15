@@ -1,5 +1,6 @@
 <div class="one_campaign">
-	<%= link_to campaign.name, organization_campaign_path(campaign.organization, campaign) %>
+	<h4><%= link_to campaign.name, organization_campaign_path(campaign.organization, campaign) %>
+	</h4>
 	<p><%= campaign.description %></p>
 	<span><%= campaign.start_date %></span>
 	<span><%= campaign.end_date %></span>

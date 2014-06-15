@@ -5,9 +5,31 @@
 }
 
 .one_campaign {
-	border: 1px solid grey;
+	background: #F0F0F0;
+	border-radius: 5px;
 	display: inline-block;
 	margin: 30px;
 	height: 250px;
 	width:350px;
+}
+
+.pledge {
+	background: #E60000;
+	color: #FFE6E6;
+	position: relative;
+	bottom: 0;
+	font-size: 16px;
+	padding: 8px 30px;
+	border-radius: 15px;
+}
+
+.pledge:hover {
+	background: #FFE6E6;	
+	color: #E60000;
+	border: 1px solid #E60000;
+	text-decoration: none;
+}
+
+.progress {
+	margin: 20px 10px;
 }
