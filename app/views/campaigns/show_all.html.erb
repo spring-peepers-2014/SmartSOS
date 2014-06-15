@@ -1,0 +1,5 @@
+<div class="show_all_campaigns">
+	<% @campaigns.each do |campaign| %>
+	  <%= render 'one_campaign', :campaign => campaign %>
+	<% end %>
+</div>

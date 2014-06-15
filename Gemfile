@@ -18,7 +18,16 @@ gem 'turbolinks', '~> 2.2.2'
 
 gem 'jbuilder', '~> 1.2'
 
+gem 'bcrypt', '~> 3.1.7'
+
 gem 'bcrypt-ruby', '~> 3.1.2'
+
+gem 'sucker'
+
+gem 'bootstrap-sass', '~> 3.1.1'
+
+# Date Validation for Active Model
+gem 'validates_timeliness', '~> 3.0'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0', require: false

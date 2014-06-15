@@ -1,14 +1,40 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 <head>
   <title>SmartSOS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='http://fonts.googleapis.com/css?family=Quicksand:300' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <div class="container-fluid">
 
+    <!-- Alex added this in to display success/failure on form submit -->
+    <% if flash %>
+      <% flash.each do |key, value| %>
+        <div class='alert alert-danger' id='<%= key %>'>
+          <%= value %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= yield %>
+
+    
+    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+     <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
+     <%= link_to "Browse Organizations", organizations_path, class: 'btn btn-inverse navbar-btn' %>
+     <%= link_to "Make A Pledge", donors_login_path, class: 'btn btn-inverse navbar-btn' %>
+     <%= link_to "Start A Campaign", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>
+
+     <% if session[:organization_id] || session[:donor_id] %>
+     <%= link_to "Log Out", sessions_logout_path, class: 'btn btn-inverse navbar-btn' %>
+     <% end %>
+   </nav>
+
+ </div>
 </body>
 </html>
