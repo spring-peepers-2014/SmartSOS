@@ -37,6 +37,7 @@ class CampaignsController < ApplicationController
 	end
 
 	def show
+		# will contain form for user to pledge items
 	end
 
 	def destroy
