@@ -1,29 +1,31 @@
-<% if session[:organization_id] == params[:organization_id].to_i %>
-	<%= link_to "Update Organization", edit_organization_path(@organization) %>
-<% end %><br>
+<div class="organization-show-container">
+	<div class="org-info col-md-3">
+		<h4>Name</h4>
+		<ul>
+		  <li><h4><%= @organization.name %></h4>
+		</ul>
+		<br><h4>Location</h4>
+		<ul>
+		  <li><h4><%= @organization.street %>, <%= @organization.city %></h4>
+		  <h4><%= @organization.state %> <%= @organization.zipcode %></h4>
+		</ul>
+		<br><h4>Contact information</h4>
+		<ul>
+		  <li><h4><%= @organization.email %></h4>
+		  <li><h4><%= @organization.phone %></h4>
+		</ul>
+		<br><h4>Who we are</h4>
+		<ul>
+		  <li><h4><%= @organization.description %></h4>
+		</ul>
+		<br><h4>Our campaigns</h4>
+		<% @organization.campaigns.each do |campaign| %>
+		  <ul>
+		    <li><h4><%= link_to campaign.name, organization_campaign_path(campaign.organization, campaign) %></h4>
+		  </ul>
+		<% end %>
+	</div>
 
-<h3>Name</h3>
-<ul>
-	<li><h4><%= @organization.name %></h4>
-</ul>
-<br><h3>Location</h3>
-<ul>
-	<li><h4><%= @organization.street %>, <%= @organization.city %></h4>
-	<h4><%= @organization.state %> <%= @organization.zipcode %></h4>
-</ul>
-<br><h3>Contact information</h3>
-<ul>
-	<li><h4><%= @organization.email %></h4>
-	<li><h4><%= @organization.phone %></h4>
-</ul>
-<br><h3>Who we are</h3>
-<ul>
-	<li><h4><%= @organization.description %></h4>
-</ul>
-<br><h3>Our campaigns</h3>
-<% @organization.campaigns.each do |campaign| %>
-	<ul>
-		<li><h3><%= link_to campaign.name, organization_campaign_path(campaign.organization, campaign) %></h3>
-	</ul>
-<% end %>
-
+	<div class="org-campaigns col-md-9">
+	</div>
+</div>
