@@ -12,14 +12,17 @@
   <div class="container-fluid">
 
     <!-- Alex added this in to display success/failure on form submit -->
-    <% flash.each do |key, value| %>
-    <div class='alert alert-danger' id='<%= key %>'>
-      <%= value %>
-    </div>
+    <% if flash %>
+      <% flash.each do |key, value| %>
+      <div class='alert alert-danger' id='<%= key %>'>
+        <%= value %>
+      </div>
+      <% end %>
     <% end %>
 
     <%= yield %>
 
+    
     <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
        <%= link_to "Browse Organizations", organizations_path, class: 'btn btn-inverse navbar-btn' %>
