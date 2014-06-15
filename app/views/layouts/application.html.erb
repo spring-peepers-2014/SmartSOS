@@ -28,7 +28,11 @@
      <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
      <%= link_to "Browse Organizations", organizations_path, class: 'btn btn-inverse navbar-btn' %>
      <%= link_to "Make A Pledge", donors_login_path, class: 'btn btn-inverse navbar-btn' %>
-     <%= link_to "Start A Campaign", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>
+     <% if organization_logged_in? %>
+      <%= link_to "Start A Campaign", new_organization_campaign_path(current_organization), class: 'btn btn-inverse navbar-btn' %>
+     <% else %>
+      <%= link_to "Start A Campaign", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>
+     <% end %>
 
      <% if session[:organization_id] || session[:donor_id] %>
      <%= link_to "Log Out", sessions_logout_path, class: 'btn btn-inverse navbar-btn' %>
