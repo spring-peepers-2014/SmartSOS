@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>SmartSOS</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -16,6 +17,19 @@
 <% end %>
 
 <%= yield %>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="container">
+    <%= link_to "Browse Campaigns", campaigns_path %>
+		<%= link_to "Browse Organizations", organizations_path %>
+		<%= link_to "Make A Pledge", donors_login_path %>
+		<%= link_to "Start A Campaign", organizations_login_path %>
+
+		<% if session[:organization_id] || session[:donor_id] %>
+			<%= link_to "Log Out", sessions_logout_path %>
+		<% end %>
+  </div>
+</nav>
 
 </body>
 </html>
