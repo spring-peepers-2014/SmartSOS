@@ -1,0 +1,14 @@
+<div class="one_campaign">
+	<%= link_to campaign.name, organization_campaign_path(campaign.organization, campaign) %>
+	<p><%= campaign.description %></p>
+	<span><%= campaign.start_date %></span>
+	<span><%= campaign.end_date %></span>
+
+	<div class="progress">
+	  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+	    <span class="sr-only">40% Complete (success)</span>
+	  </div>
+	</div>
+
+	<%= link_to "PLEDGE", sessions_logout_path, class: "pledge" %>
+</div>

@@ -1,3 +1,5 @@
-<% @campaigns.each do |campaign| %>
-	<%= link_to campaign.name, organization_campaign_path(campaign.organization, campaign) %>
-<% end %>
+<div class="show_all_campaigns">
+	<% @campaigns.each do |campaign| %>
+	  <%= render 'one_campaign', :campaign => campaign %>
+	<% end %>
+</div>
