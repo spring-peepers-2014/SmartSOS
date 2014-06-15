@@ -5,11 +5,18 @@ class Campaign < ActiveRecord::Base
   has_many :pledges
   has_many :pledged_items, through: :pledges, source: :pledged_item
   has_many :donors, through: :pledges
-  
+
   validates :name, presence: true
   validates :description, presence: true
   validates_length_of :description, maximum: 500
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates_date :end_date, :after => :start_date
+
+  def total_requests_price
+    requests = self.requests
+    requests.inject(0) do | total, request |
+      total + request.quantity * request.requested_item.price_dollars
+    end.round(2)
+  end
 end

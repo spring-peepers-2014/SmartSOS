@@ -6,11 +6,13 @@ describe RequestsController do
   let!(:campaign) { create :campaign }
 
   describe 'GET #make_requests' do
-    it "assigns @items to all items in db" do
+    it "assigns to @items all items in db" do
       item2 = create(:item)
       get :make_requests, organization_id: campaign.organization, campaign_id: campaign
       expect(assigns(:items)).to eq [item, item2]
     end
+
+    it "assigns to @total_request_price the total price of the campaign's requests"
 
     it "renders make_requests page" do
       get :make_requests, organization_id: campaign.organization, campaign_id: campaign
