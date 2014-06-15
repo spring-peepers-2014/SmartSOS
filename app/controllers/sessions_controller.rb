@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 				redirect_to organization_path(organization)
 			else
 				flash.now.alert = 'Invalid Password'
-				render 'new_organization'
+				render 'organizations_new'
 			end
 		else
 			flash.now.alert = 'Invalid Organization Email'
