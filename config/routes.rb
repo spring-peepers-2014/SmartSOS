@@ -6,6 +6,7 @@ SmartSOS::Application.routes.draw do
 	resources :organizations do
 		resources :campaigns do
 			resources :requests, except: [:show, :edit, :new]
+			resources :pledges, except: [:edit, :new, :update, :destroy, :show, :create]
 		end
 	end
 
@@ -15,6 +16,10 @@ SmartSOS::Application.routes.draw do
 	get '/organizations/:organization_id/campaigns/:campaign_id/make_requests' => 'requests#make_requests', as: :make_requests
 	get '/organizations/:organization_id/campaigns/:campaign_id/edit_requests' => 'requests#edit_requests', as: :edit_requests
 
+
+	# PLEDGE ROUTES
+	get '/donor/:donor_id/pledges' => 'pledges#list_donor_pledges', as: :donor_pledges
+	post '/organizations/:organization_id/campaigns/:campaign_id/create_pledges' => 'pledges#create_pledges', as: :create_pledges
 
 	# SESSION ROUTES
 	get '/sessions/login/organizations' => 'sessions#organizations_new', as: :organizations_login
