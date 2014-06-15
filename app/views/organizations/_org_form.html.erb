@@ -35,9 +35,16 @@
 		<%= f.label :url, "Website URL" %><br />
 		<%= f.text_field :url, class: 'form-control', placeholder: "www.myorganization.org" %><br>
 
-		<div class="text-center">
-			<%= f.submit "Register Organization", class:'btn btn-info btn-sm text-center'%>
-		</div>
+		<% if session[:organization_id] %>
+			<div class="text-center">
+				<%= f.submit "Update Organization", class:'btn btn-info btn-sm text-center'%>
+			</div>
+		<% else %>
+			<div class="text-center">
+				<%= f.submit "Register Organization", class:'btn btn-info btn-sm text-center'%>
+			</div>
+		<% end %>
+
 
 	<% end %>
 
