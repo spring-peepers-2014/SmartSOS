@@ -9,27 +9,28 @@
 </head>
 <body>
 
-<!-- Alex added this in to display success/failure on form submit -->
-<% flash.each do |key, value| %>
-	<div class='alert alert-danger' id='<%= key %>'>
-		<%= value %>
-	</div>
-<% end %>
+  <div class="container-fluid">
 
-<%= yield %>
+    <!-- Alex added this in to display success/failure on form submit -->
+    <% flash.each do |key, value| %>
+    <div class='alert alert-danger' id='<%= key %>'>
+      <%= value %>
+    </div>
+    <% end %>
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-  <div class="container">
-  	<%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
-		<%= link_to "Browse Organizations", organizations_path, class: 'btn btn-inverse navbar-btn' %>
-    <%= link_to "Make A Pledge", donors_login_path, class: 'btn btn-inverse navbar-btn' %>
-    <%= link_to "Start A Campaign", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>
+    <%= yield %>
 
-		<% if session[:organization_id] || session[:donor_id] %>
-			<%= link_to "Log Out", sessions_logout_path, class: 'btn btn-inverse navbar-btn' %>
-		<% end %>
-  </div>
-</nav>
+    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+       <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
+       <%= link_to "Browse Organizations", organizations_path, class: 'btn btn-inverse navbar-btn' %>
+       <%= link_to "Make A Pledge", donors_login_path, class: 'btn btn-inverse navbar-btn' %>
+       <%= link_to "Start A Campaign", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>
 
+       <% if session[:organization_id] || session[:donor_id] %>
+       <%= link_to "Log Out", sessions_logout_path, class: 'btn btn-inverse navbar-btn' %>
+       <% end %>
+   </nav>
+
+ </div>
 </body>
 </html>
