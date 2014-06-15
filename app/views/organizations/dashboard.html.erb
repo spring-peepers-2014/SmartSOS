@@ -13,13 +13,37 @@
     <div class="col-sm-6 col-md-4">
       <div class="campaign-holder">
         <img data-src="holder.js/300x200" alt="...">
-          <p><%= campaign.name %></p>
-            <div class="progress progress-striped active">
-            <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-              <span class="sr-only">45% Complete</span>
-            </div>
+        <p><%= campaign.name %></p>
+        <div class="progress progress-striped active">
+          <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+            <span class="sr-only">45% Complete</span>
           </div>
-          <p><a href="#" class="btn btn-primary" role="button">View</a> <a href="#" class="btn btn-default" role="button">Edit Items</a></p>
+        </div>
+        <p>
+          <a href="#" class="btn btn-primary" role="button">View</a>
+          <a href="#" class="btn btn-default" role="button">Edit Items</a>
+
+              <% i = 0 %>
+              <% campaign.pledges.each do |pledge| %>
+              <% i = i + 1 %>
+                <form id="amazon" method="GET" action="http://www.amazon.com/gp/aws/cart/add.html" target="_blank">
+                  <input type="hidden" name="AWSAccessKeyId" value=ENV["secret_access_key"] />
+                  <input type="hidden" name="AssociateTag" value="Associate Tag" />
+                  <input type="hidden" name="ASIN.<%="#{i}"%>" value="<%=pledge.pledged_item.asin%>" />
+                  <input type="hidden" name="Quantity.<%="#{i}"%>" value="<%=pledge.quantity%>" />
+            <% end %>
+
+                  <h4>Ready to get your requested items?</h4>
+                  <input type="submit" name="add" value="Checkout from Amazon" onclick="open_win()" />
+                </form>
+
+          <%# Temporary JS  %>
+          <script type="text/javascript">
+            function open_win() {
+              alert('Open new tab to Amazon?')
+            }
+          </script>
+        </p>
       </div>
     </div>
     <% end %>
