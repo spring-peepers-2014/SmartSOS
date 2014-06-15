@@ -1,11 +1,12 @@
 class RequestsController < ApplicationController
-  before_action :set_campaign, only:[:create,:edit_requests, :update, :make_requests, :destroy]
+  before_action :set_campaign, only:[:create, :make_requests, :edit_requests, :update, :make_requests, :destroy]
   before_action :set_request, only:[:update, :destroy]
-  before_action :set_organization, only:[:make_requests]
+  before_action :set_organization, only:[:make_requests, :destroy]
 
   def make_requests
     #forms for making requests
     @items = Item.all
+    @total_request_price = @campaign.total_requests_price
   end
 
   def create
@@ -36,7 +37,7 @@ class RequestsController < ApplicationController
   def destroy
     if @request.destroy
       flash[:alert] = "Success. Your Request has been removed."
-      render :edit_requests
+      redirect_to  make_requests_path(@campaign.organization, @campaign)
     else
       flash[:alert] = "Something went terribly wrong. Request not destroyed."
       render :edit_requests
