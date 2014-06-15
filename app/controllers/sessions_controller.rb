@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 		if organization = Organization.find_by_email(params[:email])
 			if organization.authenticate(params[:password])
 				session[:organization_id] = organization.id
-				redirect_to organization_path(organization)
+				redirect_to show_dashboard_path(organization)
 			else
 				flash.now.alert = 'Invalid Password'
 				render 'organizations_new'

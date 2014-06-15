@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-	before_action :set_organization, only: [:show, :edit, :update, :destroy]
+	before_action :set_organization, only: [:show, :edit, :update, :destroy, :dashboard]
 
 	def index
 		@organizations = Organization.all
@@ -40,6 +40,9 @@ class OrganizationsController < ApplicationController
 		flash[:alert] = "Success. Your Organization has been removed."
 		redirect_to root_path
 	end	
+
+	def dashboard
+	end
 
 	private
 

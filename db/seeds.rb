@@ -7,7 +7,7 @@ config_hash = YAML::load_file('config/secrets.yml')
 
 organization_names = ["Red Cross", "Children's Disaster Services"]
 
-general_search_items = %w[soap toothbrush toothpaste tampons dog_food water canned_food batteries first_aid_kit baby_formula diapers dehydrated_food]
+general_search_items = %w[soap toothbrush toothpaste tampons] #dog_food water canned_food batteries first_aid_kit baby_formula diapers dehydrated_food]
 
 general_search_items.each do |item| 
 
