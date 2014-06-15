@@ -1,15 +1,8 @@
-<%= form_tag sessions_create_organizations_path do %>
-
-	<div class="form-group">
-	  <%= label_tag :email %> <br>
-	  <%= text_field_tag :email, params[:email], class: "form-control" %>
-
-	  <%= label_tag :password %> <br>
-		<%= password_field_tag :password, params[:password], class: "form-control" %>
-
-	  <%= submit_tag(value = "Login") %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= render 'organization_login_form' %>
+    </div>
   </div>
-<% end %>
-
-<%= link_to "Register New Organization", new_organization_path %>
+</div>
 
