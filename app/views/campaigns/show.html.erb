@@ -5,7 +5,7 @@
 	<% @campaign.pledges.each do |pledge| %>
 	<% i = i + 1 %>
 		<form id="amazon" method="GET" action="http://www.amazon.com/gp/aws/cart/add.html" target="_blank">
-			<input type="hidden" name="AWSAccessKeyId" value="yDCg9VJ51/IB772OfpMg0RgxuwI0T0dnDESDtlcZ" />
+			<input type="hidden" name="AWSAccessKeyId" value=ENV["secret_access_key"] />
 			<input type="hidden" name="AssociateTag" value="Associate Tag" />
 			<input type="hidden" name="ASIN.<%="#{i}"%>" value="<%=pledge.pledged_item.asin%>" />
 			<input type="hidden" name="Quantity.<%="#{i}"%>" value="<%=pledge.quantity%>" />
