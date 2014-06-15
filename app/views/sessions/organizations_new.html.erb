@@ -1,11 +1,15 @@
 <%= form_tag sessions_create_organizations_path do %>
 
 	<div class="form-group">
-	  <%= label_tag :email %> <br>
-	  <%= text_field_tag :email, params[:email], class: "form-control" %>
+		<p>
+		  <%= label_tag :email %> <br>
+		  <%= text_field_tag :email, params[:email], class: "form-control" %>
+	  </p>
 
-	  <%= label_tag :password %> <br>
-		<%= password_field_tag :password, params[:password], class: "form-control" %>
+	  <p>
+		  <%= label_tag :password %> <br>
+			<%= password_field_tag :password, params[:password], class: "form-control" %>
+		</p>
 
 	  <%= submit_tag(value = "Login") %>
   </div>
