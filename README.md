@@ -5,11 +5,11 @@ smartSOS helps organizations allocate resources efficiently during time of crisi
 
 # Contributors: 
 
-Sahan Pitigala
-Alex Frankel
-Tuan Duong
-Payam Pakmanesh
-Pei Liu
+- Sahan Pitigala
+- Alex Frankel
+- Tuan Duong
+- Payam Pakmanesh
+- Pei Xiong Liu
 
 
 # MVP:
