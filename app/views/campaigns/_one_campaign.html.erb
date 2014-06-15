@@ -1,9 +1,9 @@
 <h3><%= campaign.name %></h3>
-<p class="org-desc"><%= campaign.description %></p>
+<p class="campaign-desc"><%= campaign.description %></p>
 
 <div class="progress">
   <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
   </div>
 </div>
 
-<%= link_to "PLEDGE", organization_campaign_path(campaign.organization, campaign), class: "org_btn" %>
+<%= link_to "PLEDGE", organization_campaign_path(campaign.organization, campaign), class: "campaign_btn" %>

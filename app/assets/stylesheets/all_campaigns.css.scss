@@ -19,7 +19,7 @@
 	right: 30px;
 }
 
-.org_btn {
+.campaign_btn {
 	background: #5bc0de;
 	border-radius: 10px;
 	color: #ffffff;
@@ -29,11 +29,13 @@
 	right: 80px;
 }
 
-.org_btn:hover {
+.campaign_btn:hover {
 	text-decoration: none;
 }
 
-.org-desc {
+.campaign-desc {
 position: absolute;
 top: 90px;
+left: 10px;
+right: 10px;
 }
