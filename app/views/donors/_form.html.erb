@@ -1,31 +1,29 @@
 <%= form_for @donor do |f| %>
+	
+	<p>
+		<%= f.label :first_name %><br />
+		<%= f.text_field :first_name %><br>
+	</p>
 
-	<% if @donor.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@donor.errors.count, "error") %> prohibited this donor from being registered:</h2>
+	<p>
+		<%= f.label :last_name %><br />
+		<%= f.text_field :last_name %><br>
+	</p>
 
-			<ul>
-				<% @donor.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
+	<p>
+		<%= f.label :email %><br />
+		<%= f.text_field :email %><br>
+	</p>
 
-	<%= f.label :first_name %><br />
-	<%= f.text_field :first_name %><br>
+	<p>
+		<%= f.label :password %><br />
+		<%= f.password_field :password %><br>
+	</p>
 
-	<%= f.label :last_name %><br />
-	<%= f.text_field :last_name %><br>
-
-	<%= f.label :email %><br />
-	<%= f.text_field :email %><br>
-
-	<%= f.label :password %><br />
-	<%= f.password_field :password %><br>
-
-	<%= f.label :password_confirmation %><br />
-	<%= f.password_field :password_confirmation %><br>
+	<p>
+		<%= f.label :password_confirmation %><br />
+		<%= f.password_field :password_confirmation %><br>
+	</p>
 
 	<%= f.submit "Create" %>
 <% end %>
