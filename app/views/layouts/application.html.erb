@@ -28,19 +28,15 @@
     </div>
 
     <%= yield %>
-    
+
     <div id="nav">
     <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-      <% if donor_logged_in? %>
-        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>  
-        <%= link_to "Start A Campaign", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>  
-        <%= link_to "Log Out", sessions_logout_path, class: 'btn btn-inverse navbar-btn' %>
-      <% elsif organization_logged_in? %>
-        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>  
-        <%= link_to "Start A Campaign", new_organization_campaign_path(session[:organization_id]), class: 'btn btn-inverse navbar-btn' %>  
+      <% if donor_logged_in? || organization_logged_in?%>
+        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
+        <%= link_to "Start A Campaign", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Log Out", sessions_logout_path, class: 'btn btn-inverse navbar-btn' %>
       <% else %>
-        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>  
+        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Start A Campaign", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>
      <% end %>
     </nav>

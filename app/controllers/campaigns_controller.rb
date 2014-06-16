@@ -7,7 +7,11 @@ class CampaignsController < ApplicationController
 	end
 
 	def new
-		@campaign = Campaign.new
+		if organization_logged_in?
+			@campaign = Campaign.new
+		else
+			redirect_to organizations_login_path
+		end
 	end
 
 	def create
