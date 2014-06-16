@@ -13,13 +13,25 @@ class PledgesController < ApplicationController
   end
 
   def create_pledges
-    #batch-create pledges
-    #not implemented yet because unclear of how pledges will be created (-pei)
+    pledge = Pledge.new(quantity: pledge_params[:quantity],
+                        item_id: pledge_params[:item_id],
+                        campaign_id: params[:campaign_id],
+                        donor_id: current_donor.id)
+
+    if pledge.save
+      request = Request.find(pledge_params[:request_id])
+      new_quantity = request.quantity - pledge.quantity
+      request.update_attribute(:quantity, new_quantity)
+      redirect_to organization_campaign_path(params[:organization_id], params[:campaign_id])
+    else
+      flash[:error] = pledge.errors_full_messages
+      redirect_to organization_campaign_path(params[:organization_id], params[:campaign_id])
+    end
   end
 
   private
 
   def pledge_params
-    params.require(:pledge).permit(:organization_id, :campaign_id, :donor_id, :quantity)
+    params.require(:pledge).permit(:quantity, :item_id, :request_id)
   end
 end
