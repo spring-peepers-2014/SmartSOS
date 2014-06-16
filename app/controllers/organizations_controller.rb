@@ -10,13 +10,13 @@ class OrganizationsController < ApplicationController
 
 	def new
 		@organization = Organization.new
-	end	
+	end
 
 	def create
 		@organization = Organization.new(organization_params)
 		if @organization.save
 			session[:organization_id] = @organization.id
-			redirect_to organization_path(@organization)
+			redirect_to show_dashboard_path(@organization)
 		else
 			flash.now.alert = "Apologies. Your Organization has not been registered."
 			render 'new'
@@ -39,7 +39,7 @@ class OrganizationsController < ApplicationController
 
 		flash[:alert] = "Success. Your Organization has been removed."
 		redirect_to root_path
-	end	
+	end
 
 	def dashboard
 	end
