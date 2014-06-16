@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <div class="container-fluid">
+  <div class="container">
 
     <!-- Alex added this in to display success/failure on form submit -->
     <% if flash %>
@@ -28,6 +28,7 @@
     </div>
 
     <%= yield %>
+    
     <div id="nav">
     <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
       <% if donor_logged_in? %>
