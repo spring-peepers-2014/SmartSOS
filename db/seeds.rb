@@ -13,8 +13,6 @@ general_search_items.each do |item|
 
   3.times do |num|
 
-    puts "hello"
-
     worker = Sucker.new(
       :associate_tag => 'sm0cd-2',
       :key => config_hash['development']['access_key_id'],
@@ -58,7 +56,7 @@ general_search_items.each do |item|
 
       item = Item.new(item_attributes)
       if item.save
-        puts "NICE!"
+        puts "Item saved."
       end
 
       end

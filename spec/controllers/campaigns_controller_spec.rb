@@ -4,10 +4,6 @@ describe CampaignsController do
   let(:campaign) { create :campaign }
 
 describe 'GET #index' do
-  it 'assigns all campaigns of the organization to @organization_campaigns' do
-      get :index, organization_id: campaign.organization.id
-      expect(assigns(:organization_campaigns)).to match_array([campaign])
-    end
 
     it 'renders campaigns index page' do
       get :index, organization_id: campaign.organization.id
@@ -79,12 +75,18 @@ describe 'GET #index' do
   end
 
   describe 'GET #show' do
-    it 'assigns @campaign to a record of Campaign' do
+    let(:donor) { create :donor }
+    let(:item) { create :item }
+    it 'assigns @user_campaign_pledges to an Array of pledges' do
+      session[:donor_id] = donor.id
+      pledge1 = Pledge.create(donor_id: donor.id, campaign_id: campaign.id, item_id: item.id)
+      pledge2 = Pledge.create(donor_id: donor.id, campaign_id: campaign.id, item_id: item.id)
       get :show, organization_id: campaign.organization, id: campaign
-      expect(assigns(:campaign)).to eq campaign
+      expect(assigns(:user_campaign_pledges)).to eq [pledge1, pledge2]
     end
 
     it 'renders campaign show page' do
+      session[:donor_id] = donor.id
       get :show, organization_id: campaign.organization, id: campaign
       expect(response).to render_template :show
     end

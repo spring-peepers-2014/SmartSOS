@@ -1,12 +1,9 @@
 class CampaignsController < ApplicationController
 	before_action :set_campaign, only:[:edit, :update, :show, :destroy]
+	before_action :set_organization, only:[:edit, :update, :show, :destroy]
 
 	def show_all
 		@campaigns = Campaign.all
-	end
-
-	def index
-		@organization_campaigns = Organization.find(params[:organization_id]).campaigns
 	end
 
 	def new
@@ -38,7 +35,8 @@ class CampaignsController < ApplicationController
 	end
 
 	def show
-		# will contain form for user to pledge items
+		@user_campaign_pledges = current_donor.pledges.where(campaign_id: @campaign.id)
+		@requests = @campaign.requests
 	end
 
 	def destroy
@@ -54,6 +52,12 @@ class CampaignsController < ApplicationController
 
 	def set_campaign
 		@campaign = Campaign.find(params[:id])
+	rescue ActiveRecord::RecordNotFound
+		flash[:alert] = "The Campaign you were looking for could not be found."
+	end
+
+	def set_organization
+		@organization = Organization.find(params[:organization_id])
 	rescue ActiveRecord::RecordNotFound
 		flash[:alert] = "The Organization you were looking for could not be found."
 	end
