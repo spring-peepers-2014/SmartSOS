@@ -3,13 +3,6 @@ require 'spec_helper'
 describe CampaignsController do
   let(:campaign) { create :campaign }
 
-describe 'GET #index' do
-
-    it 'renders campaigns index page' do
-      get :index, organization_id: campaign.organization.id
-      expect(response).to render_template :index
-    end
-  end
 
   describe 'GET #show_all' do
     it 'assigns all campaigns to @campaigns' do

@@ -10,3 +10,26 @@ body {
 	background-image: url('./whitey.png');
 }
 
+#home {
+	top: 2%;
+	right: 15%;
+	position: absolute;
+}
+
+#home img {
+	position: static;
+	height: 40px;
+	width: 40px;
+}
+
+#info {
+	top: 2.5%;
+	right: 20%;
+	position: absolute;
+}
+
+#info img {
+	position: static;
+	height: 40px;
+	width: 40px;
+}

@@ -7,7 +7,11 @@ class CampaignsController < ApplicationController
 	end
 
 	def new
-		@campaign = Campaign.new
+		if organization_logged_in?
+			@campaign = Campaign.new
+		else
+			redirect_to organizations_login_path
+		end
 	end
 
 	def create
@@ -51,7 +55,7 @@ class CampaignsController < ApplicationController
 	private
 
 	def campaign_params
-		params.require(:campaign).permit(:organization_id, :name, :description, :start_date, :end_date)
+		params.require(:campaign).permit(:organization_id, :name, :description, :end_date)
 	end
 
 	def set_campaign

@@ -5,7 +5,7 @@ require 'yaml'
 config_hash = YAML::load_file('config/secrets.yml')
 
 
-organization_names = ["Red Cross", "Children's Disaster Services"]
+organization_names = ["R` ed Cross", "Children's Disaster Services"]
 
 general_search_items = %w[soap toothbrush toothpaste tampons] #dog_food water canned_food batteries first_aid_kit baby_formula diapers dehydrated_food]
 
@@ -67,6 +67,7 @@ end
 
 
 organization_names.each do |org|
+  puts 'org'
   Organization.create(
                         name: org,
                         street: Faker::Address.street_address,
@@ -82,6 +83,7 @@ organization_names.each do |org|
 end
 
 10.times do
+  puts 'donor'
   Donor.create( first_name: Faker::Name.first_name,
                 last_name: Faker::Name.last_name,
                 email: Faker::Internet.email,
@@ -91,22 +93,24 @@ end
 
 Organization.all.each do |org|
   2.times do
+    puts 'campaign'
     org.campaigns << Campaign.create(
                       name: Faker::Lorem.sentence,
                       description: Faker::Lorem.paragraph(sentence_count=3),
-                      start_date: '02-06-2014',
                       end_date: '02-10-2014')
   end
 end
 
 Campaign.all.each do |campaign|
   10.times do
+    puts 'request'
     Request.create( campaign_id: campaign.id,
                     item_id: Item.all.sample.id,
                     quantity: rand(10))
   end
 
   10.times do
+    puts 'pledge'
     Pledge.create(  donor_id: Donor.all.sample.id,
                     campaign_id: Campaign.all.sample.id,
                     item_id: Item.all.sample.id,

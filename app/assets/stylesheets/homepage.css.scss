@@ -8,6 +8,10 @@
 	background-size: 1400px 900px;
 	background-repeat: repeat-n;
 	color: white;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 #logo {
