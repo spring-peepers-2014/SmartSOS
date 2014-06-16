@@ -1,3 +1,5 @@
+// Page Styling
+
 .app-container {
   width: 80%;
   margin: 0 auto;
@@ -24,10 +26,26 @@
   width: 500px;
 }
 
-.item {
-  border-bottom: 1px solid black;
-}
 
 #available-items, #requested-items {
   font-family: 'Quicksand', sans-serif;
 }
+
+// Individual Item Styling
+.item {
+  display: inline-block;
+}
+
+.item-available-image {
+  margin: 20px;
+  height: 140px;
+  width: 150px;
+}
+
+.item-request-image {
+  margin: 20px;
+  height: 70px;
+  width: 75px;
+}
+
+

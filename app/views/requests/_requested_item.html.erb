@@ -1,8 +1,6 @@
-<span>
-        QNTY: <%= request.quantity %>
-        <img src="<%= request.requested_item.img_url %>" height="42" width="42">
-        NAME: <%= request.requested_item.name %><br>
-        PRICE:<%= request.requested_item.price_dollars %>
-        <%= link_to 'Delete', organization_campaign_request_path(@organization, @campaign, request), method: :delete %>
-
-      </span><br>
+<div class="item">
+  QNTY: <%= request.quantity %>
+  <img class="item-request-image" src="<%= request.requested_item.img_url %>" height="42" width="42">
+  PRICE:<%= request.requested_item.price_dollars %>
+  <%= link_to 'Delete', organization_campaign_request_path(@organization, @campaign, request), method: :delete %>
+</div>
