@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 20140613034657) do
     t.integer  "organization_id"
     t.string   "name",            null: false
     t.text     "description",     null: false
+    t.text     "city"
+    t.text     "state"
+    t.text     "country"
     t.date     "start_date",      null: false
     t.date     "end_date",        null: false
     t.datetime "created_at"

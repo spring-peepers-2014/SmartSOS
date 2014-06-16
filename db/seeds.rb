@@ -9,7 +9,7 @@ organization_names = ["Red Cross", "Children's Disaster Services"]
 
 general_search_items = %w[soap toothbrush toothpaste tampons] #dog_food water canned_food batteries first_aid_kit baby_formula diapers dehydrated_food]
 
-general_search_items.each do |item| 
+general_search_items.each do |item|
 
   3.times do |num|
 
@@ -42,7 +42,7 @@ general_search_items.each do |item|
         asin = i['ASIN']
         category = nil
         price = i['ItemAttributes']['ListPrice']['Amount']
-        
+
 
         if i['ImageSets']['ImageSet'].class == Array
           img_url = i['ImageSets']['ImageSet'][0]['LargeImage']['URL']
@@ -50,9 +50,9 @@ general_search_items.each do |item|
           img_url = i['ImageSets']['ImageSet']['LargeImage']['URL']
         end
 
-        item_attributes = {name: name, 
-                            asin: asin, 
-                            category: nil, 
+        item_attributes = {name: name,
+                            asin: asin,
+                            category: nil,
                             img_url: img_url,
                             price: price}
 
@@ -69,7 +69,7 @@ end
 
 
 organization_names.each do |org|
-  Organization.create(  
+  Organization.create(
                         name: org,
                         street: Faker::Address.street_address,
                         city: Faker::Address.city,
@@ -93,9 +93,12 @@ end
 
 Organization.all.each do |org|
   2.times do
-    org.campaigns << Campaign.create(  
+    org.campaigns << Campaign.create(
                       name: Faker::Lorem.sentence,
                       description: Faker::Lorem.paragraph(sentence_count=3),
+                      city: 'Atlanta',
+                      state: 'Georgia',
+                      country: 'United States',
                       start_date: '02-06-2014',
                       end_date: '02-10-2014')
   end

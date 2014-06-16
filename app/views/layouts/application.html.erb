@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet' />
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -30,17 +32,17 @@
 
     <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
       <% if donor_logged_in? %>
-        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>  
+        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Browse Organizations", organizations_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Make A Pledge", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Log Out", sessions_logout_path, class: 'btn btn-inverse navbar-btn' %>
       <% elsif organization_logged_in? %>
-        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>  
+        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Browse Organizations", organizations_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Start A Campaign", new_organization_campaign_path(current_organization), class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Log Out", sessions_logout_path, class: 'btn btn-inverse navbar-btn' %>
       <% else %>
-        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>  
+        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Browse Organizations", organizations_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Make A Pledge", donors_login_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Start A Campaign", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>

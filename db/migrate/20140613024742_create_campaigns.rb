@@ -4,6 +4,9 @@ class CreateCampaigns < ActiveRecord::Migration
       t.belongs_to :organization
       t.string :name, null: false
       t.text :description, null: false
+      t.text :city
+      t.text :state
+      t.text :country
       t.date :start_date, null: false
       t.date :end_date, null: false
 
