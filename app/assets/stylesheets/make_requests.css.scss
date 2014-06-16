@@ -26,6 +26,28 @@
   width: 500px;
 }
 
+#total {
+  border: 2px solid green;
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  top: 20px;
+  right: 18%;
+  font-size: 18px;
+  width: 200px;
+}
+
+#complete {
+  border: 2px solid red;
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  top: 80px;
+  right: 18%;
+  font-size: 18px;
+  width: 200px;
+}
+
 
 #available-items, #requested-items {
   font-family: 'Quicksand', sans-serif;
