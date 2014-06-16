@@ -1,10 +1,9 @@
 .jumbotron {
 	position: fixed;
-	bottom: 0;
+	bottom: -5%;
 	top: 0;
 	right: 0;
 	left: 0;
-	margin-top: 5px;
 	background-image: url('http://www.talentedladiesclub.com/site/wp-content/uploads/team-work.jpg');
 	background-size: 1400px 900px;
 	background-repeat: repeat-n;
@@ -12,7 +11,9 @@
 }
 
 #logo {
-	font-size: 30px;
+	font-size: 40px;
+	position: absolute;
+	top: 3%;
 }
 
 #quote {
@@ -26,6 +27,9 @@
 
 .btn-lg {
 	opacity: 0.80;
+	position: absolute;
+	top: 15%;
+
 }
 
 
