@@ -1,10 +1,16 @@
 <% if session[:organization_id] %>
-<%= link_to "Edit Organization", edit_organization_path(@organization), class: "edit-org" %>
+  <div id="pencil">
+    <a href="<%=edit_organization_path(@organization)%>"><img src="http://www.flaticon.com/png/256/39275.png"></a>
+  </div>
 <% end %>
 
 <div class="container">
+
   <h1 class="dashboard-title">Organization Dashboard</h1>
-  <%= link_to "Create New Campaign", new_organization_campaign_path(@organization) %>
+  <div id="add_campaign">
+    <a href="<%=new_organization_campaign_path(@organization)%>"><img src="http://www.flaticon.com/png/256/16057.png"></a>
+  </div>
+
 </div>
 
 <div class="container" id="dashboard-container">
@@ -52,8 +58,8 @@
             <input type="hidden" name="AssociateTag" value="Associate Tag" />
             <input type="hidden" name="ASIN.<%="#{i}"%>" value="<%=pledge.pledged_item.asin%>" />
             <input type="hidden" name="Quantity.<%="#{i}"%>" value="<%=pledge.quantity%>" />
-       
-         
+
+
             <% end %>
 
             <a href="#" class="btn btn-primary" role="button">View/Edit</a>
@@ -66,7 +72,7 @@
               alert('Open new tab to Amazon?')
             }
           </script>
-        </div> 
+        </div>
       </div>
     </div>
     <% end %>
