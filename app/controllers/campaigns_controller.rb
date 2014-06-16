@@ -34,8 +34,13 @@ class CampaignsController < ApplicationController
 	end
 
 	def show
-		@user_campaign_pledges = current_donor.pledges.where(campaign_id: @campaign.id)
-		@requests = @campaign.requests
+		if current_donor
+			@user_campaign_pledges = current_donor.pledges.where(campaign_id: @campaign)
+			@requests = @campaign.requests
+		elsif current_organization
+			@organization_campaign_pledges = Pledge.where(campaign_id: @campaign)
+			@requests = @campaign.requests
+		end
 	end
 
 	def destroy
