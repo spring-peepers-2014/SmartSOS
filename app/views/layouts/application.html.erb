@@ -21,18 +21,31 @@
       <% end %>
     <% end %>
 
+    <div id="home">
+      <a href="/"><img src="http://static.tumblr.com/0a55470851a926be979ce9f7c2686166/sxxiy7u/naTmhgyly/tumblr_static_tumblr_m66mv4ty0c1rysqvgo1_1280.png"></a>
+    </div>
+
     <%= yield %>
 
 
     <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-     <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
-     <%= link_to "Browse Organizations", organizations_path, class: 'btn btn-inverse navbar-btn' %>
-     <%= link_to "Make A Pledge", donors_login_path, class: 'btn btn-inverse navbar-btn' %>
-     <%= link_to "Start A Campaign", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>
-
-     <% if session[:organization_id] || session[:donor_id] %>
-     <%= link_to "Log Out", sessions_logout_path, class: 'btn btn-inverse navbar-btn' %>
+      <% if donor_logged_in? %>
+        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>  
+        <%= link_to "Browse Organizations", organizations_path, class: 'btn btn-inverse navbar-btn' %>
+        <%= link_to "Make A Pledge", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
+        <%= link_to "Log Out", sessions_logout_path, class: 'btn btn-inverse navbar-btn' %>
+      <% elsif organization_logged_in? %>
+        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>  
+        <%= link_to "Browse Organizations", organizations_path, class: 'btn btn-inverse navbar-btn' %>
+        <%= link_to "Start A Campaign", new_organization_campaign_path(current_organization), class: 'btn btn-inverse navbar-btn' %>
+        <%= link_to "Log Out", sessions_logout_path, class: 'btn btn-inverse navbar-btn' %>
+      <% else %>
+        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>  
+        <%= link_to "Browse Organizations", organizations_path, class: 'btn btn-inverse navbar-btn' %>
+        <%= link_to "Make A Pledge", donors_login_path, class: 'btn btn-inverse navbar-btn' %>
+        <%= link_to "Start A Campaign", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>
      <% end %>
+
    </nav>
 
  </div>
