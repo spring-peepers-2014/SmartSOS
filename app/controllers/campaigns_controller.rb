@@ -11,7 +11,9 @@ class CampaignsController < ApplicationController
 	end
 
 	def create
-		campaign = Campaign.new(campaign_params)
+		campaign = Campaign.new(name: campaign_params[:name],
+														description: campaign_params[:description],
+														organization_id: params[:organization_id])
 
 		if campaign.save
 			redirect_to organization_campaign_path(params[:organization_id], campaign)
@@ -51,7 +53,7 @@ class CampaignsController < ApplicationController
 	private
 
 	def campaign_params
-		params.require(:campaign).permit(:organization_id, :name, :description, :start_date, :end_date)
+		params.require(:campaign).permit(:organization_id, :name, :description)
 	end
 
 	def set_campaign
