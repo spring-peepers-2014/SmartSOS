@@ -16,7 +16,9 @@ class CampaignsController < ApplicationController
 	end
 
 	def create
-		campaign = Campaign.new(campaign_params)
+		campaign = Campaign.new(name: campaign_params[:name],
+														description: campaign_params[:description],
+														organization_id: params[:organization_id])
 
 		if campaign.save
 			redirect_to organization_campaign_path(params[:organization_id], campaign)
