@@ -1,26 +1,24 @@
-<h1 class="title">Organization Make Requests Page</h1>
+<div class="app-container">
+  <h1 class="title">Organization Make Requests Page</h1>
+  <!-- List of Items -->
+  <div class="available-items col-md-6">
+    <h3>Available Items</h3>
+    <div class="available-item-list">
+      <% @items.each do |item| %>
+          <%= render 'available_item', :item => item %>
+      <% end %>
+    </div>
+  </div>
 
-<!-- List of Items -->
-<div class="col-md-6">
-  <div>
-    <% @items.each do |item| %>
-      <div>
-        <%= render 'available_item', :item => item %>
-      </div>
-    <% end %>
 
-
+  <!-- Current Requests -->
+  <div class="available-items col-md-6">
+    <h3>Items Requested</h3>
+    <div class="requested-item-list">
+      <% @campaign.requests.each do |request| %>
+        <%= render 'requested_item', :request => request %>
+      <% end %><br>
+      TOTAL:<%= @total_request_price %>
+    </div>
   </div>
 </div>
-
-
-<!-- Current Requests -->
-<div class="col-md-6">
-  <div>
-    <% @campaign.requests.each do |request| %>
-      <%= render 'requested_item', :request => request %>
-    <% end %><br>
-    TOTAL:<%= @total_request_price %>
-  </div>
-</div>
-
