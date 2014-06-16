@@ -1,8 +1,8 @@
 <div class="item">
   <img class="item-available-image" src="<%= item.img_url %>" height="42" width="42">
-  <%= item.price_dollars %>
+  $<%= item.price_dollars %>
   <%= form_tag("/organizations/#{@organization.id}/campaigns/#{@campaign.id}/requests", method: "post") do %>
-    <%= number_field_tag "request[quantity]", nil, in: 1...100 %>
+    <%= number_field_tag "request[quantity]", nil, in: 1..100 %>
     <%= hidden_field_tag "request[item_id]", item.id %>
     <%= hidden_field_tag "request[campaign_id]", @campaign.id %>
     <%= submit_tag("Add Items") %>

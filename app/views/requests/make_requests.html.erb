@@ -1,10 +1,10 @@
 <div class="app-container">
-  <h1 class="title">Organization Make Requests Page</h1>
-  <span id="total">TOTAL:<%= @total_request_price %></span>
+  <h1 class="title">Which items would you like?</h1>
+  <span id="total">TOTAL: $<%= @total_request_price %></span>
   <span id="complete">I'm Done!</span>
   <!-- List of Items -->
   <div class="available-items col-md-6">
-    <h3>Available Items</h3>
+    <h3>Available</h3>
     <div class="available-item-list">
       <% @items.each do |item| %>
           <%= render 'available_item', :item => item %>
@@ -15,7 +15,7 @@
 
   <!-- Current Requests -->
   <div class="available-items col-md-6">
-    <h3>Items Requested</h3>
+    <h3>Requested</h3>
     <div class="requested-item-list">
       <% @campaign.requests.each do |request| %>
         <%= render 'requested_item', :request => request %>
