@@ -38,6 +38,8 @@ class CampaignsController < ApplicationController
 	end
 
 	def show
+		session[:organization] = params[:organization_id]
+		session[:campaign] = params[:id]
 		if current_donor
 			@user_campaign_pledges = current_donor.pledges.where(campaign_id: @campaign)
 			@requests = @campaign.requests
@@ -45,6 +47,7 @@ class CampaignsController < ApplicationController
 			@requests = @campaign.requests
 		else
 			redirect_to donors_login_path
+			# (:organization_id => params[:organization_id], :campaign_id => params[:campaign_id])
 		end
 	end
 
