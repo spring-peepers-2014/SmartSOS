@@ -1,6 +1,6 @@
 class CampaignsController < ApplicationController
 	before_action :set_campaign, only:[:edit, :update, :show, :destroy]
-	before_action :set_organization, only:[:edit, :update, :show, :destroy]
+	before_action :set_organization, only:[:new, :edit, :update, :show, :destroy]
 
 	def show_all
 		@campaigns = Campaign.all
@@ -8,7 +8,6 @@ class CampaignsController < ApplicationController
 
 	def new
 		@campaign = Campaign.new
-		@organization = Organization.find(params[:organization_id])
 	end
 
 	def create

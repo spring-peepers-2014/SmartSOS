@@ -1,6 +1,6 @@
 <div class = "organization-form">
 
-	<%= form_for ([@organization, @campaign]) do |f| %>
+	<%= form_for @campaign, url: {action: "create"} do |f| %>
 
 		<%= f.label :name, "Campaign name" %><br />
 		<%= f.text_field :name, class: 'form-control'%><br>
