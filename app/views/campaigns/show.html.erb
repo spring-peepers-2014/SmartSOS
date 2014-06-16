@@ -1,19 +1,36 @@
+<h1>Show Campaign</h1>
 <h1><%= @campaign.name %></h1>
 
-	<% if session[:organization_id] == params[:organization_id].to_i %>
-		<% i = 0 %>
-		<% @campaign.pledges.each do |pledge| %>
-		<% i = i + 1 %>
+<div class="container">
+  <h2>Your Pledged Items for this Campaign</h2>
+  <ul>
+    <% @user_campaign_pledges.each do |pledge| %>
+      <li>
+        <%= pledge.pledged_item.name %>, <%= pledge.quantity %>
+      </li>
+    <% end %>
 
-			<form id="amazon" method="GET" action="http://www.amazon.com/gp/aws/cart/add.html" target="_blank">
-				<input type="hidden" name="AWSAccessKeyId" value=ENV["secret_access_key"] />
-				<input type="hidden" name="AssociateTag" value="Associate Tag" />
-				<input type="hidden" name="ASIN.<%="#{i}"%>" value="<%=pledge.pledged_item.asin%>" />
-				<input type="hidden" name="Quantity.<%="#{i}"%>" value="<%=pledge.quantity%>" />
-		<% end %>
-				<h4>Ready to get your requested items?</h4>
-				<input type="submit" name="add" value="Checkout from Amazon" />
-			</form>
-	<% end %>
+  </ul>
 
+</div>
+
+<div class="container">
+  <h2>Requested Items</h2>
+  <ul>
+    <% @requests.each do |request| %>
+    <%= form_tag("/organizations/#{@organization.id}/campaigns/#{@campaign.id}/create_pledges", method: 'post') do %>
+        <li>
+          <img src=" <%= request.requested_item.img_url %>" height="42" width="42">
+          <%= request.requested_item.name %>
+          <%= request.requested_item.price_dollars %>
+          <%= request.quantity %>
+          <%= number_field_tag "pledge[quantity]", nil, in: 1...request.quantity %>
+          <%= hidden_field_tag "pledge[item_id]", value="#{request.requested_item.id}" %>
+          <%= hidden_field_tag "pledge[request_id]", value="#{request.id}" %>
+        </li>
+        <%= submit_tag "Pledge" %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
 

@@ -4,7 +4,7 @@ SmartSOS::Application.routes.draw do
 	get '/campaigns' => 'campaigns#show_all', as: :campaigns
 
 	resources :organizations do
-		resources :campaigns do
+		resources :campaigns, except: [:index] do
 			resources :requests, except: [:show, :edit, :new]
 			resources :pledges, except: [:edit, :new, :update, :destroy, :show, :create]
 		end
