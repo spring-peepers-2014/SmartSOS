@@ -1,10 +1,6 @@
 <h3><%= campaign.name %></h3>
 <p><%= campaign.description %></p>
 
-<div class="progress">
-  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <%= campaign.percentage_goal_complete %>%">
-  </div>
-</div>
 
 <div class="pledge-btn">
 <%= link_to "PLEDGE", organization_campaign_path(campaign.organization, campaign), class: "btn btn-info" %>

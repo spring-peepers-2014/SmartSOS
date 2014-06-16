@@ -9,8 +9,6 @@ class Campaign < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
   validates_length_of :description, maximum: 500
-  validates :end_date, presence: true
-  validates_date :end_date
 
   def total_requests_price
     requests = self.requests
@@ -29,5 +27,17 @@ class Campaign < ActiveRecord::Base
   def percentage_goal_complete
     ((total_pledges_price / total_requests_price) * 100).round
   end
+
+
+  def total_request_quantity
+    requests = self.requests
+    requests.pluck(:quantity).reduce(:+)
+  end
+
+  def total_pledge_quantity
+    pledges = self.pledges
+    pledges.pluck(:quantity).reduce(:+)
+  end
+
 
 end

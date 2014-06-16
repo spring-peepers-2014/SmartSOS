@@ -2,6 +2,7 @@ $lightblue: green;
 
 
 
+
 #dashboard-container{
   padding-top: 20px;
   opacity: 0.8;
@@ -11,6 +12,24 @@ $lightblue: green;
   font-family: 'Quicksand', sans-serif;
   opacity: 0.8;
 }
+
+.detail-box{
+  float:left;
+  height: 110px;
+  width: 146px;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.detail-content{
+  color: white;
+  font-size: 2em;
+}
+
+.detail-footer{
+  padding-top: 10px;
+  text-align: center;
+} 
 
 .campaign-holder{
   width: 320px;
@@ -24,6 +43,21 @@ $lightblue: green;
   // -webkit-box-shadow: 1px 1px 2px 2px #666666;
   // box-shadow:         1px 1px 2px 2px #666666;
   opacity: 0.8;
+}
+
+.campaign-title{
+  text-align: center;
+  height: 50px;
+  font-size: 15px; 
+  font-weight: bold;
+}
+
+.campaign-details{
+  padding-top: 4px;
+  height: 250px;
+  width: auto;
+  border: 1px solid white;
+  border-radius: 10px;
 }
 
 .edit-org{
