@@ -1,6 +1,8 @@
 SmartSOS::Application.routes.draw do
 	root :to => 'application#homepage'
 
+	get '/aboutus' => 'application#aboutus'
+
 	get '/campaigns' => 'campaigns#show_all', as: :campaigns
 
 	resources :organizations do
