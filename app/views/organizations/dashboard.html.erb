@@ -6,7 +6,9 @@
 
 <div class="container">
   <h1 class="dashboard-title">Campaign Dashboard</h1>
-  <%= link_to "Create New Campaign", new_organization_campaign_path(@organization) %>
+  <div id="add_campaign">
+    <a href="<%=new_organization_campaign_path(@organization)%>"><img src="http://www.flaticon.com/png/256/16057.png"></a>
+  </div>
 </div>
 
 <div class="container" id="dashboard-container">
