@@ -8,6 +8,8 @@
   <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet' />
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "initialize", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "homepage", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -28,8 +30,7 @@
     </div>
 
     <%= yield %>
-
-
+    <div id="nav">
     <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
       <% if donor_logged_in? %>
         <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
@@ -47,8 +48,8 @@
         <%= link_to "Make A Pledge", donors_login_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Start A Campaign", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>
      <% end %>
-
-   </nav>
+    </nav>
+    </div>
 
  </div>
 </body>
