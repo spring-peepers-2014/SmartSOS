@@ -2,7 +2,7 @@ class DonorsController < ApplicationController
 	before_action :set_donor, only: [:show, :edit, :update, :destroy]
 
 	def new
-		@donor = Donor.new 
+		@donor = Donor.new
 	end
 
 	def create
@@ -10,10 +10,10 @@ class DonorsController < ApplicationController
 
 		if @donor.save
 			session[:donor_id] = @donor.id
-			redirect_to donor_path(@donor)
+			redirect_to organization_campaign_path(session[:organization], session[:campaign])
 		else
 			flash.now.alert = "Apologies. Your Registration was not recorded."
-			render 'new'  
+			render 'new'
 		end
 	end
 

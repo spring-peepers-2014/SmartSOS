@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
 		if donor = Donor.find_by_email(params[:email])
 			if donor.authenticate(params[:password])
 				session[:donor_id] = donor.id
-				# redirect to campaign show_dashboard_path
+				# redirect to campaign organization_campain_path
 				# need campaign and organization info
 				redirect_to organization_campaign_path(session[:organization], session[:campaign])
 			else
