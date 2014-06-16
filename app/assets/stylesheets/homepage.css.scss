@@ -5,31 +5,40 @@
 	right: 0;
 	left: 0;
 	background-image: url('http://www.talentedladiesclub.com/site/wp-content/uploads/team-work.jpg');
-	background-size: 1400px 900px;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 	background-repeat: repeat-n;
 	color: white;
 }
 
 #logo {
-	font-size: 40px;
+	font-size: 34px;
 	position: absolute;
-	top: 3%;
+	top: 1%;
+	left: 3.5%;
 }
 
 #quote {
 	color: white;
 	height: 450px;
-	width: 450px;
-	right: 2%;
-	top: 65%;
+	width: 650px;
+	right: 3%;
+	top: 62%;
 	position: absolute;
 }
 
+#quote h2 {
+	font-size: 36px;
+}
+
 .btn-lg {
+	border: none;
 	opacity: 0.80;
 	position: absolute;
-	top: 15%;
-
+	top: 8%;
+	left: 3.5%;
 }
 
 

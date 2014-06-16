@@ -8,5 +8,11 @@ body {
 }
 
 .navbar a {
+  color: #fdfdfd;
+  font-size: 18px;
 	width: 19.5%;
+}
+
+.navbar a:hover {
+  color: #428bca;
 }
