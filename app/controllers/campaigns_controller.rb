@@ -4,6 +4,7 @@ class CampaignsController < ApplicationController
 
 	def show_all
 		@campaigns = Campaign.all
+		redirect_to donors_login_path unless donor_logged_in?
 	end
 
 	def new
