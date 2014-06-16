@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   def homepage
   end
 
+  def aboutus
+  end
+
   def current_donor
     @current_donor ||= session[:donor_id] && Donor.find(session[:donor_id])
   end
