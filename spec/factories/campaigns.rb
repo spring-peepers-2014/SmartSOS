@@ -5,7 +5,6 @@ FactoryGirl.define do
     association :organization
 		name { Faker::Lorem.word }
 		description { Faker::Lorem.paragraph }
-		start_date { '02-06-2014' }
 		end_date { '02-10-2014' }
 
 		factory :invalid_campaign do
