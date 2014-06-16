@@ -4,6 +4,7 @@ class CampaignsController < ApplicationController
 
 	def show_all
 		@campaigns = Campaign.all
+		redirect_to donors_login_path unless donor_logged_in?
 	end
 
 	def new
@@ -55,7 +56,7 @@ class CampaignsController < ApplicationController
 	private
 
 	def campaign_params
-		params.require(:campaign).permit(:organization_id, :name, :description, :end_date)
+		params.require(:campaign).permit(:organization_id, :name, :description, :start_date, :end_date)
 	end
 
 	def set_campaign
