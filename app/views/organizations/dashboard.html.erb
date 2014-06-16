@@ -12,30 +12,51 @@
     <% @organization.campaigns.each do |campaign| %>
     <div class="col-sm-6 col-md-4">
       <div class="campaign-holder">
-        <img data-src="holder.js/300x200" alt="...">
-        <p><%= campaign.name %></p>
 
-        <div class="progress">
-          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+        <div class="campaign-title">
+          <p><%= campaign.name %></p>
+        </div>
+
+        <div class="campaign-details">
+          <div class="detail-box">
+              <p>Requested</p>
+              <p class="detail-content">$<%= campaign.total_requests_price %></p>
+          </div>
+          <div class="detail-box">
+              <p>Received</p>
+              <p class="detail-content">$<%= campaign.total_pledges_price %></p>
+          </div>
+           <div class="detail-box">
+            <p>Items Requested</p>
+            <p class="detail-content"><%= campaign.total_request_quantity  %></p>
+          </div>
+          <div class="detail-box">
+            <p>Items Pledged</p>
+            <p class="detail-content"> <%= campaign.total_pledge_quantity %></p>
           </div>
         </div>
 
-          <a href="#" class="btn btn-primary" role="button">View</a>
-          <a href="#" class="btn btn-default" role="button">Edit Items</a>
-        <p>
+        <div class="detail-footer">
 
-              <% i = 0 %>
-              <% campaign.pledges.each do |pledge| %>
-              <% i = i + 1 %>
-                <form id="amazon" method="GET" action="http://www.amazon.com/gp/aws/cart/add.html" target="_blank">
-                  <input type="hidden" name="AWSAccessKeyId" value=ENV["secret_access_key"] />
-                  <input type="hidden" name="AssociateTag" value="Associate Tag" />
-                  <input type="hidden" name="ASIN.<%="#{i}"%>" value="<%=pledge.pledged_item.asin%>" />
-                  <input type="hidden" name="Quantity.<%="#{i}"%>" value="<%=pledge.quantity%>" />
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%=campaign.percentage_goal_complete%>%">
+            </div>
+          </div>
+
+          <% i = 0 %>
+          <% campaign.pledges.each do |pledge| %>
+          <% i = i + 1 %>
+          <form id="amazon" method="GET" action="http://www.amazon.com/gp/aws/cart/add.html" target="_blank">
+            <input type="hidden" name="AWSAccessKeyId" value=ENV["secret_access_key"] />
+            <input type="hidden" name="AssociateTag" value="Associate Tag" />
+            <input type="hidden" name="ASIN.<%="#{i}"%>" value="<%=pledge.pledged_item.asin%>" />
+            <input type="hidden" name="Quantity.<%="#{i}"%>" value="<%=pledge.quantity%>" />
             <% end %>
 
-                  <input type="submit" name="add" class="btn btn-danger" value="Checkout w/ Amazon" onclick="open_win()" />
-                </form>
+            <a href="#" class="btn btn-primary" role="button">View</a>
+            <a href="#" class="btn btn-default" role="button">Edit Items</a>
+            <input type="submit" name="add" class="btn btn-danger" value="Checkout" onclick="open_win()" />
+          </form>
 
           <%# Temporary JS  %>
           <script type="text/javascript">
@@ -43,7 +64,7 @@
               alert('Open new tab to Amazon?')
             }
           </script>
-        </p>
+        </div> 
       </div>
     </div>
     <% end %>

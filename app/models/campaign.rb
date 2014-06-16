@@ -29,4 +29,16 @@ class Campaign < ActiveRecord::Base
     ((total_pledges_price / total_requests_price) * 100).round
   end
 
+
+  def total_request_quantity
+    requests = self.requests
+    requests.pluck(:quantity).reduce(:+)
+  end
+
+  def total_pledge_quantity
+    pledges = self.pledges
+    pledges.pluck(:quantity).reduce(:+)
+  end
+
+
 end
