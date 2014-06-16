@@ -11,6 +11,7 @@ class CampaignsController < ApplicationController
 
 	def new
 		@campaign = Campaign.new
+		@organization = Organization.find(params[:organization_id])
 	end
 
 	def create

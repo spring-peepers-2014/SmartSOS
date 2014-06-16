@@ -1,19 +1,22 @@
-.show_all_campaigns {
-	margin: 0 auto;
-	text-align: center;
-	width: 80%;
-}
-
 .campaign {
+	text-align: center;
+	display: block;
 	border: 1px solid black;
 	border-radius: 5px;
 	margin: 40px 40px;
 	height: 250px;
-	width:350px;
+	width:400px;
+}
+
+.campaign-desc {
+position: relative;
+top: 90px;
+left: 10px;
+right: 10px;
 }
 
 .progress {
-	position: absolute;
+	position: relative;
 	bottom: 40px;
 	left: 30px;
 	right: 30px;
@@ -23,7 +26,7 @@
 	background: #5bc0de;
 	border-radius: 10px;
 	color: #ffffff;
-	position: absolute;
+	position: relative;
 	bottom: 20px;
 	left: 80px;
 	right: 80px;
@@ -33,22 +36,14 @@
 	text-decoration: none;
 }
 
-.campaign-desc {
-position: absolute;
-top: 90px;
-left: 10px;
-right: 10px;
-}
+#map {
 
-#home {
-	top: 2%;
-	right: 15%;
+	padding: 8px;
 	position: absolute;
-}
-
-#home img {
-	position: static;
-	height: 40px;
-	width: 40px;
+	top: 15%;
+	right: 18%;
+	bottom: 0;
+	height: 600px;
+	width: 850px;
 }
 

@@ -10,7 +10,7 @@ class OrganizationsController < ApplicationController
 
 	def new
 		@organization = Organization.new
-	end	
+	end
 
 	def create
 		@organization = Organization.new(organization_params)
@@ -39,7 +39,7 @@ class OrganizationsController < ApplicationController
 
 		flash[:alert] = "Success. Your Organization has been removed."
 		redirect_to root_path
-	end	
+	end
 
 	def dashboard
 	end

@@ -1,21 +1,17 @@
-<div class="show_all_campaigns">
+<div class="app-container">
+  <h1 class="title">Look at all of our wonderful campaigns!</h1>
+
 	<% @campaigns.each do |campaign| %>
-    <div class="campaign col-md-4">
+    <div class="campaign">
   	  <%= render 'one_campaign', :campaign => campaign %>
     </div>
 	<% end %>
-</div>
 
-<div class="campaign col-md-8">
+  <div id='map'></div>
+    <script>
+    var map = L.mapbox.map('map', 'examples.map-i86nkdio')
+        .setView([40, -74.50], 9);
+    </script>
+  </div>
 
-<style>
-  body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
-</style>
-</head>
-<div id='map'></div>
-<script>
-var map = L.mapbox.map('map', 'examples.map-i86nkdio')
-    .setView([40, -74.50], 9);
-</script>
 </div>
