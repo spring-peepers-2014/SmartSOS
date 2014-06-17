@@ -28,9 +28,6 @@ class DonorsController < ApplicationController
 		end
 	end
 
-	def show
-	end
-
 	def destroy
 		@donor.destroy
 

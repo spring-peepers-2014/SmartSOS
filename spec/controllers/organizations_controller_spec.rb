@@ -2,15 +2,6 @@ require 'spec_helper'
 
 describe OrganizationsController do
 
-	describe 'GET #index' do
-		it 'assigns all organizations to @organizations' do
-			org1 = create(:organization)
-			org2 = create(:organization)
-			get :index
-			expect(assigns(:organizations)).to match_array([org1, org2])
-		end
-	end
-
 	describe 'GET #show' do
 		it 'assigns the requested organization to @org' do
 			org = create(:organization)
