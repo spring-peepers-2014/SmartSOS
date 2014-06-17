@@ -12,7 +12,7 @@ SmartSOS::Application.routes.draw do
 		end
 	end
 
-	resources :donors, except: [:index]
+	resources :donors, except: [:index, :show]
 
 	# DASHBOARD ROUTE
 	get '/organizations/:id/dashboard' => 'organizations#dashboard', as: :show_dashboard
