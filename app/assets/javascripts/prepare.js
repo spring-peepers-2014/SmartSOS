@@ -1,4 +1,4 @@
 function prepareApp(){
-	animateHomepage(); 
+	animateHomepage();
 	amazonNewTab();
 }
