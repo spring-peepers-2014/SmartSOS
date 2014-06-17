@@ -17,7 +17,7 @@
     <!-- Alex added this in to display success/failure on form submit -->
     <% if flash %>
       <% flash.each do |key, value| %>
-        <div class='alert alert-danger' id='<%= key %>'>
+        <div class='alert-danger' id='<%= key %>'>
           <%= value %>
         </div>
       <% end %>
