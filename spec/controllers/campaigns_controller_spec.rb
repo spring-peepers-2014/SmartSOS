@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe CampaignsController do
   let(:campaign) { create :campaign }
+  let(:organization) { create :organization }
 
 
   describe 'GET #show_all' do
@@ -19,6 +20,7 @@ describe CampaignsController do
 
   describe 'GET #new' do
     it 'assign a new instance of Campaign to @campaign' do
+      session[:organization_id] = organization.id
       get :new, organization_id: campaign.organization_id
       expect(assigns(:campaign)).to be_a Campaign
     end
