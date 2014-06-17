@@ -17,7 +17,7 @@ class Campaign < ActiveRecord::Base
     end.round(2)
   end
 
-  def total_pledges_price 
+  def total_pledges_price
     pledges = self.pledges
     pledges.inject(0) do | total, pledge |
       total + pledge.quantity * pledge.pledged_item.price_dollars
@@ -25,7 +25,11 @@ class Campaign < ActiveRecord::Base
   end
 
   def percentage_goal_complete
-    ((total_pledges_price / total_requests_price) * 100).round
+    if total_pledges_price > 0
+      ((total_pledges_price / total_requests_price) * 100).round
+    else
+      return 0
+    end
   end
 
 

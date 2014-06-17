@@ -13,19 +13,28 @@ class PledgesController < ApplicationController
   end
 
   def create_pledges
-    pledge = Pledge.new(quantity: pledge_params[:quantity],
-                        item_id: pledge_params[:item_id],
-                        campaign_id: params[:campaign_id],
-                        donor_id: current_donor.id)
+    request = Request.find(pledge_params[:request_id])
+    new_request_quantity = request.quantity - pledge_params[:quantity].to_i
+    same_item_pledge = current_donor.pledges.find_by item_id: pledge_params[:item_id]
 
-    if pledge.save
-      request = Request.find(pledge_params[:request_id])
-      new_quantity = request.quantity - pledge.quantity
-      request.update_attribute(:quantity, new_quantity)
+    if same_item_pledge
+      new_pledge_quantity = same_item_pledge.quantity + pledge_params[:quantity].to_i
+      same_item_pledge.update_attribute('quantity', new_pledge_quantity)
+      request.update_attribute(:quantity, new_request_quantity)
       redirect_to organization_campaign_path(params[:organization_id], params[:campaign_id])
     else
-      flash[:error] = pledge.errors_full_messages
-      redirect_to organization_campaign_path(params[:organization_id], params[:campaign_id])
+      pledge = Pledge.new(quantity: pledge_params[:quantity],
+                          item_id: pledge_params[:item_id],
+                          campaign_id: params[:campaign_id],
+                          donor_id: current_donor.id)
+
+      if pledge.save
+        request.update_attribute(:quantity, new_request_quantity)
+        redirect_to organization_campaign_path(params[:organization_id], params[:campaign_id])
+      else
+        flash[:error] = pledge.errors_full_messages
+        redirect_to organization_campaign_path(params[:organization_id], params[:campaign_id])
+      end
     end
   end
 

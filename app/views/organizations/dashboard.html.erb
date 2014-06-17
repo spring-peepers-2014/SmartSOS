@@ -55,8 +55,11 @@
 
             <% end %>
 
-            <a href="#" class="btn btn-primary" role="button">View/Edit</a>
-            <input type="submit" name="add" class="btn btn-danger" value="Checkout"/>
+            <%= link_to "View/Edit", make_requests_path(@organization, campaign), class: "btn btn-primary", role: "button" %>
+            <!-- <a href="" class="btn btn-primary" role="button">View/Edit</a> -->
+            <% if  campaign.pledges.count > 0 %>
+              <input type="submit" name="add" class="btn btn-danger" value="Checkout" onclick="open_win()" />
+            <% end %>
           </form>
         </div>
       </div>
