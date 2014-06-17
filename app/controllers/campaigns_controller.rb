@@ -40,6 +40,7 @@ class CampaignsController < ApplicationController
 	end
 
 	def show
+		#http://localhost:3000/organizations/1/campaigns/1
 		session[:organization] = params[:organization_id]
 		session[:campaign] = params[:id]
 		if current_donor
