@@ -20,7 +20,7 @@ class CampaignsController < ApplicationController
 														organization_id: params[:organization_id])
 
 		if campaign.save
-			redirect_to organization_campaign_path(params[:organization_id], campaign)
+			redirect_to make_requests_path(params[:organization_id], campaign)
 		else
 			flash[:alert] = "Problem creating new campaign."
 			render 'new'

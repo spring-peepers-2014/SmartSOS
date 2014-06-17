@@ -1,5 +1,5 @@
-function amazonNewTab() {	
+function amazonNewTab() {
 	$('#amazon').on("submit", function(){
-		alert('Open new tab to Amazon?')
+		// alert('Open new tab to Amazon?')
 	});
 }
