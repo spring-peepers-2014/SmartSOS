@@ -1,16 +1,10 @@
 <% if session[:organization_id] %>
-  <div id="pencil">
-    <a href="<%=edit_organization_path(@organization)%>"><img src="http://www.flaticon.com/png/256/39275.png"></a>
-  </div>
 <% end %>
 
-<div class="container">
-
+<div>
   <h1 class="dashboard-title">Organization Dashboard</h1>
-  <div id="add_campaign">
-    <a href="<%=new_organization_campaign_path(@organization)%>"><img src="http://www.flaticon.com/png/256/16057.png"></a>
-  </div>
-
+  <%= link_to "Edit Organization", edit_organization_path(@organization), class:"edit-org" %>
+  <%= link_to "Create New Campaign", new_organization_campaign_path(@organization), class:"new-campaign" %>
 </div>
 
 <div class="container" id="dashboard-container">
@@ -50,6 +44,8 @@
             </div>
           </div>
 
+
+
           <% i = 0 %>
           <% campaign.pledges.each do |pledge| %>
           <% i = i + 1 %>
@@ -68,13 +64,6 @@
               <input type="submit" name="add" class="btn btn-danger" value="Checkout" onclick="open_win()" />
             <% end %>
           </form>
-
-          <%# Temporary JS  %>
-          <script type="text/javascript">
-            function open_win() {
-              alert('Open new tab to Amazon?')
-            }
-          </script>
         </div>
       </div>
     </div>

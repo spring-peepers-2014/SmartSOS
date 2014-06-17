@@ -12,55 +12,28 @@ body {
 	background-image: url('./whitey.png');
 }
 
-#home {
-	top: 2%;
-	right: 15%;
-	position: absolute;
-}
+// div {
+// 	border: 1px solid red;
+// }
 
-#home img {
-	position: static;
-	height: 40px;
-	width: 40px;
-}
-
-#info {
-	top: 2.5%;
-	right: 20%;
-	position: absolute;
-}
-
-#info img {
-	position: static;
-	height: 40px;
-	width: 40px;
-}
-
-#pencil {
-	top: 1.5%;
-	right: 10%;
-	position: absolute;
-}
-
-#pencil img {
-	position: static;
+#top-home {
+	postion: fixed;
+	top: 0;
 	height: 50px;
-	width: 50px;
+	width: 100%;
 }
 
-#add_campaign {
-	top: -1.5%;
-	right: 23%;
+#top-home a img {
 	position: absolute;
+	top: 12px;
+	right: 400px;
+	height: 40px;
 }
 
-#add_campaign img {
-	height: 85px;
-	width: 85px;
-}
-
-#info a {
-  display: block;
-  width: 100%;
-  height: 100%;
+.alert-danger {
+	background: none;
+	border: none;
+	position: absolute;
+	top: 3%;
+	padding: 0;
 }

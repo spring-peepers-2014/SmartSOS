@@ -17,25 +17,26 @@
 #logo {
 	font-size: 40px;
 	position: absolute;
-	top: 3%;
+	top: 2%;
 }
 
 #quote {
 	color: white;
 	height: 450px;
-	width: 450px;
-	right: 2%;
+	width: 600px;
+	right: 4%;
 	top: 65%;
 	position: absolute;
+	font-weight: bold;
 }
 
 .btn-lg {
 	opacity: 0.80;
 	position: absolute;
-	top: 15%;
+	top: 11%;
+	left: 3.75%;
 
 }
-
 
 .btn-lg:hover {
 	opacity: 100;
