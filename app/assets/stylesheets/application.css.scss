@@ -6,13 +6,19 @@
 @import "dashboard";
 @import "homepage";
 @import "all_organizations";
+@import "show_campaign";
+
 body {
 	background-image: url('./whitey.png');
 }
 
-// div {
-// 	border: 1px solid red;
-// }
+li {
+	list-style-type: none;
+}
+
+div {
+	border: 1px solid red;
+}
 
 #top-home {
 	postion: fixed;
