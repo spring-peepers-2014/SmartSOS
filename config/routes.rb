@@ -8,7 +8,6 @@ SmartSOS::Application.routes.draw do
 	resources :organizations, except: [:index] do
 		resources :campaigns, except: [:index] do
 			resources :requests, except: [:show, :edit, :new]
-			resources :pledges, except: [:edit, :new, :update, :destroy, :show, :create]
 		end
 	end
 

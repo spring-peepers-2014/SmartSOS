@@ -1,12 +1,6 @@
 
 class PledgesController < ApplicationController
 
-
-  def index
-    #list all pledges for a campaign
-    @pledges = Campaign.find(params[:campaign_id]).pledges
-  end
-
   def list_donor_pledges
     #list all pledges of a donor
     @pledges = Donor.find(params[:donor_id]).pledges
