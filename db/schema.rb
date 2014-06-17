@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140616162142) do
     t.integer  "organization_id"
     t.string   "name",                           null: false
     t.text     "description",                    null: false
-    t.date     "end_date"
+    t.date     "end_date",                       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "active",          default: true
