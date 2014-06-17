@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe DonorsController do
+	let(:donor) { create :donor }
 
 	describe 'GET #new' do
 		it "assigns a new Donor to @donor" do
@@ -28,6 +29,12 @@ describe DonorsController do
 	end
 
 	describe 'POST #create' do
+		before :each do
+			@organization = create(:organization)
+			@campaign = create(:campaign)
+			session[:organization] = @organization.id
+			session[:campaign] = @campaign.id
+		end
 
 		context "with valid attributes" do
 			it "saves the new donor in the database" do
@@ -35,12 +42,12 @@ describe DonorsController do
 					post :create, donor: attributes_for(:donor)
 			}.to change(Donor, :count).by(1)
 			end
-		end
 
 			it "redirect to donors#show" do
 				post :create, donor: attributes_for(:donor)
-				expect(response).to redirect_to donor_path(assigns[:donor])
+				expect(response).to redirect_to organization_campaign_path(@organization, @campaign)
 			end
+		end
 
 
 		context "with invalid attributes" do
