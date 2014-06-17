@@ -36,14 +36,17 @@
 
     <div id="nav">
     <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-      <% if donor_logged_in? || organization_logged_in?%>
+      <% if donor_logged_in? %>
         <%= link_to "About Us", aboutus_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
+        <%= link_to "Log Out", sessions_logout_path, class: 'btn btn-inverse navbar-btn' %>
+      <% elsif organization_logged_in? %>
+        <%= link_to "About Us", aboutus_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Start A Campaign", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Log Out", sessions_logout_path, class: 'btn btn-inverse navbar-btn' %>
       <% else %>
         <%= link_to "About us", aboutus_path, class: 'btn btn-inverse navbar-btn' %>
-        <%= link_to "Browse Campaigns", campaigns_path, class: 'btn btn-inverse navbar-btn' %>
+        <%= link_to "Browse Campaigns", donors_login_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Start A Campaign", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>
      <% end %>
     </nav>
