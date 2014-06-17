@@ -42,6 +42,10 @@ class OrganizationsController < ApplicationController
 	end
 
 	def dashboard
+		unless current_organization == @organization
+			flash[:alert] = "Sorry, you do not have access to that dashboard."
+			redirect_to organizations_login_path
+		end
 	end
 
 	private
