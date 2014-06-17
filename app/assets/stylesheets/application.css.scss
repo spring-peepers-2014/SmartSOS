@@ -10,16 +10,18 @@ body {
 	background-image: url('./whitey.png');
 }
 
-#home {
-	top: 2%;
-	right: 15%;
-	position: absolute;
+#top-home {
+	postion: fixed;
+	top: 0;
+	height: 50px;
+	width: 100%;
 }
 
-#home img {
-	position: static;
+#top-home a img {
+	position: absolute;
+	top: 12px;
+	right: 400px;
 	height: 40px;
-	width: 40px;
 }
 
 #info {
