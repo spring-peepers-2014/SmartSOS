@@ -4,7 +4,6 @@ class CampaignsController < ApplicationController
 
 	def show_all
 		@campaigns = Campaign.all
-		redirect_to donors_login_path unless donor_logged_in?
 	end
 
 	def new
@@ -41,12 +40,16 @@ class CampaignsController < ApplicationController
 	end
 
 	def show
+		session[:organization] = params[:organization_id]
+		session[:campaign] = params[:id]
 		if current_donor
 			@user_campaign_pledges = current_donor.pledges.where(campaign_id: @campaign)
 			@requests = @campaign.requests
-		elsif current_organization
 			@organization_campaign_pledges = Pledge.where(campaign_id: @campaign)
 			@requests = @campaign.requests
+		else
+			redirect_to donors_login_path
+			# (:organization_id => params[:organization_id], :campaign_id => params[:campaign_id])
 		end
 	end
 

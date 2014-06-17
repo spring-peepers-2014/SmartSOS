@@ -22,16 +22,15 @@ class SessionsController < ApplicationController
 	end
 
 	def donors_new
-		if session[:donor_id]
-			redirect_to donor_path(Donor.find(session[:donor_id]))
-		end
 	end
 
 	def donors_create
 		if donor = Donor.find_by_email(params[:email])
 			if donor.authenticate(params[:password])
 				session[:donor_id] = donor.id
-				redirect_to donor_path(donor)
+				# redirect to campaign organization_campain_path
+				# need campaign and organization info
+				redirect_to organization_campaign_path(session[:organization], session[:campaign])
 			else
 				flash.now.alert = 'Invalid Password'
 				render 'donors_new'
