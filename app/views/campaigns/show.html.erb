@@ -1,23 +1,15 @@
-
 <h1>THIS PAGE SHOULD ALLOW DONORS TO MAKE PLEDGES TO A CAMPAIGN!</h1>
-
 <h1 class="dashboard-title">Show Campaign</h1>
-
 <h1><%= @campaign.name %></h1>
-
 <div class="container">
-
-      <h2>Items You have Pledged for this Campaign</h2>
-      <ul>
-        <% @user_campaign_pledges.each do |pledge| %>
+  <h2>Items You have Pledged for this Campaign</h2>
+  <ul>
+    <% @user_campaign_pledges.each do |pledge| %>
       <li>
         <%= pledge.pledged_item.name %>, <%= pledge.quantity %>
       </li>
-
     <% end %>
-
   </ul>
-
 </div>
 
 <div class="container">
@@ -38,21 +30,6 @@
       <% end %>
     <% end %>
   </ul>
-</div>
-
-<div class="container">
-
-      <h2>Items you have received from this Campaign</h2>
-      <ul>
-        <% @organization_campaign_pledges.each do |pledge| %>
-      <li>
-        <%= pledge.pledged_item.name %>, <%= pledge.quantity %>
-      </li>
-
-    <% end %>
-
-  </ul>
-
 </div>
 
 
