@@ -1,3 +1,5 @@
+$lightgray: #cccccc;
+
 .title {
 	 font-family: 'Quicksand', sans-serif;
 }
@@ -9,21 +11,42 @@
 }
 
 .campaign {
-	border: 1px solid #b3b3b3;
 	border-radius: 5px;
 	margin: 40px 40px;
-	height: 300px;
-	width:350px;
+	height: 310px;
+	width: 350px;
+	padding: 10px;
+	background-color: $lightgray;
+}
+
+.all {
+	position: relative;
+	left: 2px;
+	right: 2px;
+	width: 100%;
+}
+
+.all-title {
+	width: 100%;
+	height: 84px;
+	font-size: 18px;
+}
+
+.all-title p{
+	font-size: 20px;
 }
 
 .pledge-btn{
-	position: absolute;
-	bottom: 5px;
-	margin-left: 33%;
+	width: 100%;
+	position: relative;
 }
 
 .campaign-desc {
-	position: absolute;
-	top: 100px;
+	position: relative;
+	height: 130px;
+	padding-top: 10px;
+	border: 1px solid white;
+	border-radius: 5px;
+	margin-bottom: 5px;
 }
 

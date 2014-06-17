@@ -27,11 +27,6 @@
       <a href="/"><img src="https://diogomonica.com/assets/diogomonica/media/home.png"></a>
     </div>
 
-<!--
-    <div id="info">
-      <a href="/aboutus"><img src="http://images.clipartlogo.com/files/images/17/178666/universal-information-symbol_f"></a>
-    </div> -->
-
     <%= yield %>
 
     <div id="nav">
@@ -42,7 +37,7 @@
         <%= link_to "Log Out", sessions_logout_path, class: 'btn btn-inverse navbar-btn' %>
       <% elsif organization_logged_in? %>
         <%= link_to "About Us", aboutus_path, class: 'btn btn-inverse navbar-btn' %>
-        <%= link_to "Start A Campaign", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>
+        <%= link_to "Organization Dashboard", organizations_login_path, class: 'btn btn-inverse navbar-btn' %>
         <%= link_to "Log Out", sessions_logout_path, class: 'btn btn-inverse navbar-btn' %>
       <% else %>
         <%= link_to "About us", aboutus_path, class: 'btn btn-inverse navbar-btn' %>
