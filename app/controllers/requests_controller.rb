@@ -4,7 +4,7 @@ class RequestsController < ApplicationController
   before_action :set_organization, only:[:make_requests, :destroy]
 
   def make_requests
-    #forms for making requests
+    #/organizations/:organization_id/campaigns/:campaign_id/make_requests
     @items = Item.all
     @total_request_price = @campaign.total_requests_price
   end
