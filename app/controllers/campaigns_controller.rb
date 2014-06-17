@@ -45,12 +45,9 @@ class CampaignsController < ApplicationController
 		session[:campaign] = params[:id]
 		if current_donor
 			@user_campaign_pledges = current_donor.pledges.where(campaign_id: @campaign)
-			@requests = @campaign.requests
-			@organization_campaign_pledges = Pledge.where(campaign_id: @campaign)
-			@requests = @campaign.requests
+			@requests = @campaign.requests.sort_by(&:quantity).reverse
 		else
 			redirect_to donors_login_path
-			# (:organization_id => params[:organization_id], :campaign_id => params[:campaign_id])
 		end
 	end
 
