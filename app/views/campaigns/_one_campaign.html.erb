@@ -1,7 +1,7 @@
 <h3><%= campaign.name %></h3>
-<p><%= campaign.description %></p>
+<p class="campaign-desc"><%= campaign.description %></p>
 
 
 <div class="pledge-btn">
-<%= link_to "PLEDGE", organization_campaign_path(campaign.organization, campaign), class: "btn btn-info" %>
+  <%= link_to "PLEDGE", organization_campaign_path(campaign.organization, campaign), class: "btn btn-info" %>
 </div>
